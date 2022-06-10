@@ -1,0 +1,67 @@
+.progress-ring-container {
+    /* position: absolute;
+    top: 20px; */
+}
+
+.progress-ring {
+  transition: stroke-dashoffset 1s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  border-radius: 3px;
+   -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+  filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+  /* stroke: linear-gradient(red, blue);
+  stroke: green; */
+}
+
+.progress-ring:hover {
+    cursor: pointer;
+}
+
+.progress-ring-progress-num {
+    /* position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100px;
+    width: 100px; */
+}
+
+.progress-ring-shadow {
+    transform: translateY(150px);
+    position: absolute;
+    bottom: 0;
+    stroke: blue;
+}
+
+#progress-ring-shadow-svg {
+    position: absolute;
+    bottom: -175px;
+    left: calc(50% - 100px);
+}
+
+#progress-ring-shadow {
+    transform: rotate3d(1, 0, 0, 83deg);
+    fill: rgb(15, 15, 15);
+    width: 100%;
+}
+
+.overall-percent {
+    font: 30px MetropolisLight;
+    fill: rgb(47, 119, 253);
+    fill: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ml-role-container {
+
+}
+
+@media(min-width: 1000px) {
+}
+
+@media(min-width: 1500px) {
+}
+
+@media(min-width: 2000px) {
+}

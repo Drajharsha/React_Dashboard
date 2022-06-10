@@ -1,0 +1,102 @@
+#prompt {
+    height: 100%;
+    top: 0;
+}
+
+#prompt>div {
+    font-size: 1.2rem;
+    /* width: 90%; */
+}
+
+#prompt {
+    position: absolute;
+    left: 0;
+    top: -10px;
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.7rem;
+    background-color: #061c2c;
+    /* background: linear-gradient(to right, rgb(14, 28, 42), rgb(28, 60, 79), rgb(14, 28, 42)); */
+    color: #ffffff;
+    /* background: linear-gradient(to right, rgb(14, 28, 42), rgb(28, 60, 79), rgb(14, 28, 42)); */
+}
+
+#prompt>.prompt {
+    margin-top: 10%;
+    font-size: 2rem;
+    color: #33fff9;
+    max-width: 80%;
+    text-align: center;
+}
+
+#prompt>div {
+    margin-top: 3rem;
+}
+
+.welcome-prompt {
+    background-color: #061c2c;
+    /* background: linear-gradient(to right, rgb(14, 28, 42), rgb(28, 60, 79), rgb(14, 28, 42)); */
+    color: #ffffff;
+}
+
+.staggered-prompt {
+    opacity: 0;
+    width: 45%;
+    transition: all 3s;
+    font-size: 1.5rem;
+    min-height: 20%;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+#prompt>.lets-go {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    width: 45%;
+}
+
+#lets-go-button {
+    /* position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%); */
+    /* right: auto; */
+    border: black solid 1px;
+    border: rgb(125, 249, 248) solid 1px;
+    border-radius: 25px;
+    padding: 1rem;
+    /* margin-right: 1rem; */
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#lets-go-button:hover {
+    background-image: linear-gradient(20deg, rgba(25, 139, 195, .1), rgba(25, 139, 195, 1));
+    cursor: pointer;
+}
+
+@media(min-width: 1000px) {
+    #prompt>.prompt {
+        max-width: 45%;
+    }
+}
+
+@media(min-width: 1500px) {
+}
+
+@media(min-width: 2000px) {
+    #lets-go-button {
+        transform: translateY(-150px);
+    }
+}

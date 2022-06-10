@@ -1,0 +1,43 @@
+.tooltip-container {
+    position: absolute;
+    transition: all 750ms;
+    left: -32px;
+    top: -5px;
+    z-index: 10;
+}
+
+.tooltip-logo {
+    height: 20px;
+}
+
+.answer-tooltip {
+    top: 38%;
+}
+
+.tooltip-text {
+    position: relative;
+    position: absolute;
+    display: none;
+    align-items: center;
+    /* height: 8%; */
+    width: 50%;
+    padding: .5rem;
+    border: #082638 solid 1px;
+    border-radius: 6px;
+    background: white;
+    color: black;
+    visibility: hidden;
+    transition: all 1s;
+    transform: translateY(0px);
+    /* display: none; */
+    /* z-index: -1; */
+}
+
+@media(min-width: 1000px) {
+}
+
+@media(min-width: 1500px) {
+}
+
+@media(min-width: 2000px) {
+}

@@ -1,0 +1,52 @@
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+}
+
+.alert-body {
+    font-size: 12px;
+    color: #842029;
+}
+
+#survey-container>#alert-container {
+    max-height: 40px;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    transform: scale(1);
+    animation: pulse 1s 1;
+    position: absolute;
+    top: 20vh;
+    left: 2.5vw;
+}
+
+#login-popup-container>#alert-container {
+    max-height: 40px;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    transform: scale(1);
+    animation: pulse 1s 1;
+}
+
+@media(min-width: 1000px) {
+    #survey-container>#alert-container {
+        position: fixed;
+        top: 40vh;
+        left: 2.5vw;
+}}
+
+@media(min-width: 1500px) {
+}
+
+@media(min-width: 2000px) {
+}

@@ -1,0 +1,218 @@
+#landing-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    /* background: linear-gradient(45deg, rgb(97, 171, 217), black 20% 70%, black, rgb(97, 171, 217)); */
+    background: radial-gradient(ellipse at top right, rgb(97, 171, 217), transparent 25%),
+        radial-gradient(ellipse at bottom left, rgb(97, 171, 217), black 25%);
+}
+
+#landing-banner-container {
+    height: 11vh;
+    display: flex;
+    align-items: center;
+}
+
+.customer-logo {
+    height: 60%;
+    margin-left: 1.5rem;
+}
+
+#landing-body-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 82vh;
+    /* background-color: rgba(255, 255, 255, .12); */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+}
+
+.landing-split-container {
+    width: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+}
+
+#landing-header {
+    font-family: Metropolis;
+    color: white;
+    font-size: var(--font-tiny-header);
+    width: 80%;
+    text-align: center;
+}
+
+#landing-header-divider {
+    width: 10%;
+    height: 2px;
+    background-color: rgb(230, 52, 104);
+    margin: 1rem 0 1rem 0;
+}
+
+.landing-prompts {
+    color: white;
+    font-size: var(--font-tiny-body);
+    padding: .5rem;
+    width: 80%;
+    font-family: MetropolisLight;
+}
+
+#landing-footer-container {
+    height: 7vh;
+}
+
+#prompt-img {
+    width: 65%;
+    margin-top: 20px;
+    /* border: 1px solid green; */
+}
+
+
+#prompt-bullets-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 25%;
+    margin-top: 1rem;
+}
+
+.prompt-bullet-container {
+    display: flex;
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: .2rem;
+}
+
+.bullet-text {
+    margin-left: 1rem;
+    font-size: var(--font-tiny-body)
+}
+
+.bullet {
+    min-height: 1rem;
+    max-height: 1rem;
+    min-width: 1rem;
+}
+
+.lime {
+    background-color: #94FF4E;
+}
+
+.royalblue {
+    background-color: #4967F7;
+}
+
+.teal {
+    background-color: #47D7C1;
+}
+
+.salmon {
+    background-color: #FF8658;
+}
+
+#landing-submit-button {
+    width: 50%;
+    max-width: 350px;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+    /* background: rgb(230, 52, 104); */
+    border: rgb(230, 52, 104) 2px solid;
+    border-radius: 2rem;
+    color: white;
+    padding: 1rem;
+}
+
+#landing-submit-button:hover {
+    cursor: pointer;
+    background-color: var(--hover-color);
+}
+
+@media(min-width: 1000px) {
+    #prompt-img {
+        margin-top: 0px;
+    }
+    .landing-split-container {
+        width: 45%;
+        height: 45%;
+    }
+    #landing-header {
+        font-size: var(--font-small-header);
+    }
+
+    .landing-prompts {
+        font-size: var(--font-small-body);
+    }
+
+    .bullet-text {
+        font-size: var(--font-small-body);
+    }
+    #landing-body-container {
+        flex-direction: row;
+        width: 70%;
+    }
+}
+
+@media(min-width: 1500px) {
+    #landing-header {
+        font-size: var(--font-medium-header);
+    }
+
+    .landing-prompts {
+        font-size: var(--font-medium-body);
+    }
+
+    .bullet-text {
+        font-size: var(--font-medium-body);
+    }
+}
+
+@media(min-width: 2000px) {
+    #landing-header {
+        font-size: var(--font-large-header);
+    }
+
+    .landing-prompts {
+        font-size: var(--font-large-body);
+    }
+
+    .bullet-text {
+        font-size: var(--font-large-body);
+    }
+}
+
+#jump-to-end {
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 200px;
+}
+
+#jump-to-end>input {
+    border: white;
+    background: rgb(213, 232, 247);
+    margin: 1px;
+    border-radius: 3px;
+    color: black;
+}
+
+.jump-to-end {
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.jump-to-end:hover {
+    cursor: pointer;
+}

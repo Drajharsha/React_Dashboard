@@ -1,0 +1,217 @@
+#conclusion-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    /* background: linear-gradient(45deg, rgb(97, 171, 217), black 20% 70%, black, rgb(97, 171, 217)); */
+    background: radial-gradient(ellipse at top right, rgb(97, 171, 217), transparent 25%),
+        radial-gradient(ellipse at bottom left, rgb(97, 171, 217), black 25%);
+}
+
+#conclusion-banner-container {
+    height: 11vh;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#conclusion-body-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55vh;
+    background-color: rgba(255, 255, 255, .12);
+    width: 50%;
+    border-radius: 15px;
+    /* border: 1px solid salmon; */
+}
+
+.conclusion-checkmark {
+    position: absolute;
+    right: -30px;
+    width: 25px;
+}
+
+.password-req-container {
+    font-size: calc(var(--font-tiny-body) * .9);
+    /* position: absolute; */
+    left: calc(100% + 5px);
+    display: flex;
+    flex-direction: column;
+    color: rgb(230, 52, 104);
+    margin-top: 1rem;
+}
+
+.pass-req {
+    min-width: 150px;
+    /* text-decoration: line-through; */
+    transition: all 500ms ease-in-out;
+}
+
+.hidden-req {
+    color: transparent;
+    position: absolute;
+}
+
+.linethrough {
+    text-decoration: line-through;
+}
+
+#conclusion-body-container>.left>.landing-prompts {
+    justify-content: center;
+    /* align-items: center; */
+    text-align: center;
+}
+
+#conclusion-body-container>.conclusion-split-container {
+    /* width: 50% !important; */
+    justify-content: center;
+    /* border: 1px solid blue; */
+    /* padding: 1rem 0 1rem 0; */
+}
+
+#conclusion-body-container>.right {
+    background-color: #0D4D5F;
+    height: 100%;
+    border-radius: 0 15px 15px 0;
+    width: 33% !important;
+    /* border: 1px solid green; */
+}
+
+#conclusion-body-container>.left {
+    width: 67% !important;
+}
+
+.conclusion-field-container {
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.conclusion-field-container>.login-value-title {
+    max-width: 150px;
+    min-width: 75px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.conclusion-header {
+    color: white;
+    font-family: Metropolis;
+    font-size: var(--font-tiny-header);
+}
+
+.header-container {
+    position: relative;
+    max-width: 80%;
+}
+
+#conclusion-img {
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 10%; */
+    width: 100%;
+    /* height: 90px; */
+    margin-top: .5rem;
+}
+
+#conclusion-circle-img {
+    width: 30%;
+    padding: 2rem 0 2rem 0;
+    /* border: 1px solid red; */
+}
+
+#conclusion-submit-button {
+    width: 70%;
+    text-align: center;
+    margin: 2.5rem 0 1rem 0;
+    background-color: #25B8BF;
+    border-radius: 2rem;
+    border-radius: 6px;
+    height: 40px;
+    color: white;
+    padding: .5rem 0 .5rem 0;
+    min-width: 200px;
+    max-width: 300px;
+    font-size: var(--font-tiny-header)
+}
+
+#conclusion-submit-button:hover {
+    cursor: pointer;
+}
+
+#conclusion-bullets-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    transform: translateX(5%);
+}
+
+.conclusion-bullet-text {
+    margin-left: 1rem;
+    font-size: calc(var(--font-tiny-body) * .7);
+}
+
+@media(min-width: 1000px) {
+    .conclusion-header {
+        font-size: var(--font-small-header);
+    }
+
+    .password-req-container {
+        font-size: calc(var(--font-small-body) * .9);
+    }
+
+    #conclusion-submit-button {
+        font-size: var(--font-small-header);
+    }
+
+    .conclusion-bullet-text {
+        font-size: calc(var(--font-small-body) * .7);
+    }
+}
+
+@media(min-width: 1500px) {
+    .conclusion-header {
+        font-size: var(--font-medium-header);
+    }
+
+    .password-req-container {
+        font-size: calc(var(--font-medium-body) * .9);
+    }
+
+    #conclusion-submit-button {
+        font-size: var(--font-medium-header);
+    }
+
+    .conclusion-bullet-text {
+        font-size: calc(var(--font-medium-body) * .7);
+    }
+}
+
+@media(min-width: 2000px) {
+    .conclusion-header {
+        font-size: var(--font-large-header);
+    }
+
+    .password-req-container {
+        font-size: calc(var(--font-large-body) * .9);
+    }
+
+    #conclusion-submit-button {
+        font-size: var(--font-large-header);
+    }
+
+    .conclusion-bullet-text {
+        font-size: calc(var(--font-large-body) * .7);
+    }
+
+    #conclusion-body-container {
+        width: 55%;
+    }
+}

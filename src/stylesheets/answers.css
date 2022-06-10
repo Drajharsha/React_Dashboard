@@ -1,0 +1,74 @@
+.survey-dropdown-container {
+    width: 100%;
+    display: flex;
+}
+
+.dropdown-answers-container {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    max-height: 75%;
+    border-radius: 6px;
+    overflow: scroll;
+}
+
+.dropdown-preview-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .2rem;
+    width: 75%;
+    height: 2rem;
+    border-radius: 6px;
+    color: #082638;
+    border: 1px solid black;
+}
+
+.dropdown-answers-container>.dropdown-answer {
+    height: 2rem;
+    padding: .3rem;
+    font-size: var(--font-small-body);
+    margin: 0px;
+    border-radius: 0px;
+    color: #082638;
+    border-top: none;
+    height: 40px;
+    /* width: 95%; */
+    /* box-sizing: border-box; */
+}
+
+
+
+.dropdown-answers-container>.first-dropdown {
+    border-top: 1px solid black;
+    border-radius: 3px 0px 0 0;
+    background-color: transparent;
+    /* box-sizing: border-box; */
+}
+
+.dropdown-answers-container>.dropdown-answer:hover {
+    border-color: black;
+}
+
+.dropdown-answer:hover {
+    cursor: pointer;
+    background-color: rgb(192, 213, 252);
+}
+
+@media(min-width: 1000px) {
+    .dropdown-answers-container>.dropdown-answer {
+        font-size: var(--font-medium-body);
+    }
+}
+
+@media(min-width: 1500px) {
+    .dropdown-answers-container>.dropdown-answer {
+        font-size: var(--font-medium-body);
+    }
+}
+
+@media(min-width: 2000px) {
+    .dropdown-answers-container>.dropdown-answer {
+        font-size: var(--font-large-body);
+    }
+}
