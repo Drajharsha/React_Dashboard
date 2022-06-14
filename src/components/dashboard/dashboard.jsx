@@ -57,6 +57,7 @@ class Dashboard extends React.Component {
             this.props.authenticate(JSON.parse(localStorage.authentication))
         }
 
+        console.log(this);
         let results = UTIL.getScores(this);
 
         this.score = results[0];
@@ -241,6 +242,7 @@ class Dashboard extends React.Component {
     }
 
     render() {
+        console.log("rendering")
         console.log(this.props.user)
         console.log(this.props.currentScore)
         console.log(this.props)

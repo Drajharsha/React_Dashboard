@@ -176,6 +176,35 @@ export const getScores = THIS => {
     return [ score ]
 }
 
+export const getScoresFunctionalComponent = props => {
+    let score;
+    let insight;
+    if (props.archivalScore) {
+        if (!Array.isArray(props.archivalScore)) {
+            if (props.archivalScore) score = props.archivalScore;
+        } else {
+            if (props.archivalScore) {
+                score = props.archivalScore[0];
+                insight = props.archivalScore[1];
+            }
+        }
+    }
+
+    if (props.currentScore) {
+        if (!Array.isArray(props.currentScore)) {
+            if (props.currentScore) score = props.currentScore;
+        } else {
+            if (props.currentScore) {
+                score = props.currentScore[0];
+                insight = props.currentScore[1];
+            }
+        }
+    }
+
+    if (insight) return [ score, insight ]
+    return [ score ]
+}
+
 export const setSubDefinitions = section => {
     switch (section) {
         case DATA_PREPARATION:

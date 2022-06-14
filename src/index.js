@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   store = configureStore(preloadedState);
   window.store = store;
   const root = document.getElementById('root');
+
   ReactDOM.render(
     <React.StrictMode>
       <Root store={store} />
