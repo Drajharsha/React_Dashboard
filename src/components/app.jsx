@@ -7,6 +7,7 @@ import { IntercomProvider } from 'react-use-intercom';
 
 
 const App = () => {
+    console.log("getting called");
     return (
         <IntercomProvider appId="wfrwqepf">
             <Switch>

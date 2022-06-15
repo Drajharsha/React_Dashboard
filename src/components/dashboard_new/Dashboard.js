@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import Sidenav from "../sidenav/sidenav";
 // import teal_logo from '../../images/logos/logo_teal';
 import teal_logo from '../../images/logos/logo_teal.png';
@@ -12,43 +12,119 @@ import { Download } from '../dashboard/subcomponents/download';
 import * as UTIL from '../../util/components/dashboard_component_util';
 import { calcProgressRingRadius } from '../util/responsive_util';
 import ProgressRing from '../progress_ring/progress_ring_container';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { activeComponent } from '../../actions/component_actions';
+import { userScore } from '../../actions/user_actions';
+import { authenticate } from '../../actions/session_actions';
 
 import vector from '../../icons/vector.svg';
 import { set } from "react-ga";
+import LoginPopup from "../login/login_popup";
 
 
 const Dashboard = (props) => {
+
+    console.log("-----)))))))----")
+    console.log(props)
 
     const [score, setScore] = useState();
     const [staticKeys, setStaticKeys] = useState({
         "ML_READINESS": ["Overall", "Data Preparation", "Model Development", "Model Deployment", "Model Monitoring", "Business Value"],
         "STUDENT_SURVEY": ["Overall", "Data Preparation", "Modeling", "Career Trajectory", "ML Aptitude", "Business Value"]
     })
-    const [survey_version, setSurveyVersion] = useState("");
+    const [survey_version, setSurveyVersion] = useState("STUDENT_SURVEY");
     const [insight, setInsight] = useState(false)
     const [responsiveObj, setResponsiveObj] = useState(false);
+    const [isLoaded, setLoaded] = useState(false)
 
-    const state = useSelector((state) => state)
+    const state = useSelector((state) => state.entities)
+    const mainState = useSelector(state => state);
+    const sessionUser = useSelector(state => state.session.user)
+    const dispatch = useDispatch();
 
-    if (state.entities.user.score) {
-        console.log(state.entities.user.score[0]);
-        // setScore(state.entities.user.score[0]);
+    // if (isLoaded) {
+       
+    // }
+    
+
+
+    var findScoreLocally = (results) => {
+        console.log(results);
+        // console.log(state.entities.user)
+
+        let keys = Object.keys(results);
+
+        if (keys.every(cat => staticKeys["ML_READINESS"].includes(cat))) {
+            console.log("------0000000-----")
+            setSurveyVersion("ML_READINESS")
+        } else {
+            // survey_version = "STUDENT_SURVEY"
+            console.log("----45454545-----")
+            setSurveyVersion("STUDENT_SURVEY")
+        }
+
+        // setSurveyVersion("ML_READINESS")
+
+        if (results.length > 1) setInsight(results[1]);
+
+        // props.activateComponent(DASHBOARD);
+        dispatch(activeComponent(DASHBOARD));
+
+        document.addEventListener('keypress', handleKeyPress);
+        document.addEventListener('scroll', handleScroll);
+        
     }
 
-    const componentDidMount = async () => {
-        if (!props.archivalScore && !props.currentScore && props.user) {
-            await props.findScore(props.user);
-        }
+    
+
+    // console.log(state)
+    // if (state.user.score) {
+    //     dispatch(userScore(state.user))
+    // }
+    
+    // if (state.user.score) {
+    //     console.log(state.user.score[0]);
+    //     findScoreLocally(state.user.score[0]);
+        
+        
+    //     // setScore(state.entities.user.score[0]);
+    // }
+
+    const componentDidMount =  () => {
+        // await props.findScore(props.user);
+        // if (!props.archivalScore && !props.currentScore && props.user) {
+            console.log("compoenent did mount calling");
+
+            let result = new Promise((res, rej) => {
+                dispatch(userScore(sessionUser))
+            });
+
+            //  await result
+
+            //  console.log(response)
+
+            if (state.user.score) { 
+                
+                setLoaded(true)
+            }
+
+            // console.log(data);
+        // }
         if (localStorage.authentication) {
-            props.authenticate(JSON.parse(localStorage.authentication))
+            // props.authenticate(JSON.parse(localStorage.authentication))
+            dispatch(authenticate(JSON.parse(localStorage.authentication)))
         }
+
+        console.log(state)
+        
     }
 
 
 
     const findScore =  async () => {
-        let results = await UTIL.getScoresFunctionalComponent(props);
+        console.log(state)
+        const prps = {archivalScore: state.user.score, currentScore: state.surveys.score }
+        let results = await UTIL.getScoresFunctionalComponent(prps);
 
         // console.log(UTIL.getScores(props))
         console.log(results);
@@ -56,21 +132,24 @@ const Dashboard = (props) => {
         setScore(results[0])
         console.log("000000000000");
         console.log(results);
-        console.log(state.entities.user)
+        // console.log(state.entities.user)
 
         let keys = Object.keys(results[0]);
 
         if (keys.every(cat => staticKeys["ML_READINESS"].includes(cat))) {
 
+            console.log("++++++++++000000+++++")
             setSurveyVersion("ML_READINESS")
         } else {
             // survey_version = "STUDENT_SURVEY"
+            console.log("-----0000000-------")
             setSurveyVersion("STUDENT_SURVEY")
         }
 
         if (results.length > 1) setInsight(results[1]);
 
-        props.activateComponent(DASHBOARD);
+        // props.activateComponent(DASHBOARD);
+        dispatch(activeComponent(DASHBOARD));
 
         document.addEventListener('keypress', handleKeyPress);
         document.addEventListener('scroll', handleScroll);
@@ -78,16 +157,41 @@ const Dashboard = (props) => {
 
     useEffect(() => {
         componentDidMount()
+
+        // if (sessionUser) {
+        //     console.log("session user is valid")
+        //     // findScoreLocally(sessionUser)
+        //     // findScore()
+        // }
+
+        // console.log(state);
+
         
+         
     }, [])
 
     useEffect(() => {
-        findScore()
+        console.log("use effect 2 getting called");
+        // findScore()
+
+        // console.log(state)
+
+        // if (state.user.score) {
+        //     console.log("users exist");
+        //     findScoreLocally(state.user.score[0]);
+        // }
+
     }, [])
 
+    if (state.user.score) {
+        findScore()
+        setLoaded(false)
+    }
 
 
-    const handleKeyPress = (e) => {
+
+
+    var handleKeyPress = (e) => {
         switch (e.key) {
             case "D":
                 debugger
@@ -97,7 +201,7 @@ const Dashboard = (props) => {
         }
     }
 
-    const handleScroll = (e) => {
+    var handleScroll = (e) => {
         var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
         let contact = document.querySelector('.contact-container');
         if (st > this.lastScrollTop) {
@@ -162,17 +266,18 @@ const Dashboard = (props) => {
 
     const renderOverviewComponents = (panelName, subscoreSection) => {
         let classification = UTIL.setClassification(props);
-        let score = Math.ceil(score["Overall"]);
-        if (!responsiveObj) responsiveObj = calcProgressRingRadius({ classification, score, bool: true });
+        console.log(score)
+        let scor = Math.ceil(score["Overall"]);
+        if (!responsiveObj) responsiveObj = calcProgressRingRadius({ classification, scor, bool: true });
         // let { radius, orientation, ratio, height, width } = this.responsiveObj;
         console.log("sssssssssssssss");
-        console.log(score);
+        console.log(scor);
 
         if (subscoreSection === "date") return;
         if (subscoreSection === "Overall") return (
             <div className="overall-score-container" key="overall-progress-ring-container">
                 <div className="mlr-score">Overall MLR Score</div>
-                <ProgressRing props={{ progress: score, classification }} />
+                <ProgressRing props={{ progress: scor, classification }} />
                 {/* <div className="score-meaning">what does my score mean</div> */}
                 <div className="classification-container">
                     <div className="classification">{classification}</div>
@@ -209,6 +314,7 @@ const Dashboard = (props) => {
 
 
     const renderOverviewPanel = () => {
+        console.log("rendering overview panel")
         return (
             <div className="overview-panel-container wide-dash-element" key="overview">
                 {/* <div className="dividers">
@@ -235,10 +341,10 @@ const Dashboard = (props) => {
                     <img src={gradient} alt="" className="gradient" />
                 </div>
                 <div className="dashboard-user-profile-container">
-                    <div className="dashboard-username">Hi {props.user.name}</div>
+                    <div className="dashboard-username">Hi {mainState.session.user.name}</div>
                     <div className="dashboard-user-profile">
                         <div className="dashboard-user-profile-char" onClick={() => document.querySelector('.expanded-user-profile-container').classList.toggle('hidden')}>
-                            {props.user.name.slice(0, 1)}
+                            {mainState.session.user.name.slice(0, 1)}
                         </div>
                     </div>
                     <div className="expanded-user-profile-container hidden">
@@ -249,7 +355,7 @@ const Dashboard = (props) => {
             </div>
             <div className="dashboard-container">
                 {
-                    props.activeComponent === DASHBOARD && [
+                    state.activeComponent.component === DASHBOARD && [
                         renderOverviewPanel(),
                         <div className="divider"></div>,
                         renderInsightPanel()
