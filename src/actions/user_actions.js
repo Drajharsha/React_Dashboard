@@ -8,7 +8,7 @@ export const setUserScore = score => ({
     score
 })
 
-export const newUser = (user, fromSurveyBoolean) => {
+export const newUser =  (user, fromSurveyBoolean) => {
     return APIUtil.newUser(user, fromSurveyBoolean)
         .then(res => {
             return res.data;
@@ -18,9 +18,9 @@ export const newUser = (user, fromSurveyBoolean) => {
         })
 };
 
-export const userScore = email => dispatch => {
+export const userScore = email => async (dispatch) => {
     // debugger
-    APIUtil.findScore(email)
+    await APIUtil.findScore(email)
         .then(res => {
             dispatch(setUserScore(res.data))
         })

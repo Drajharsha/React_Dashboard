@@ -41,12 +41,27 @@ export const setClassification = that => {
     }
 }
 
-export const setMoniker = that => {
+export const setClassificationForFunctional = that => {
+    // debugger
+    let standard = that.survey_version === "ML_READINESS";
     if (that.score["Overall"] < 25) {
-        return "Glad you entered the realm of Machine Learning!  You are currently an ML Observer who just started exploring ML basics from a theoretical foundation such as probability and statistics to programming skills. Keep up the Good Work!";
+        return standard ? "Observer" : "Observer";
     } else if (that.score["Overall"] < 50) {
-        return "You have been practicing for a while. You have been equipped with some of the fundamentals of ML and started to implement those knowledge into a few ML models with your programming skills.";
+        return standard ? "Participant" : "Apprentice";
     } else if (that.score["Overall"] < 75) {
+        return standard ? "Innovator" : "Career Seeker";
+    } else {
+        return standard ? "Leader" : "Dean's List"
+    }
+}
+
+export const setMoniker = that => {
+    console.log(that)
+    if (that.Overall < 25) {
+        return "Glad you entered the realm of Machine Learning!  You are currently an ML Observer who just started exploring ML basics from a theoretical foundation such as probability and statistics to programming skills. Keep up the Good Work!";
+    } else if (that.Overall < 50) {
+        return "You have been practicing for a while. You have been equipped with some of the fundamentals of ML and started to implement those knowledge into a few ML models with your programming skills.";
+    } else if (that.Overall < 75) {
         return "At this stage you are well prepared with all the basics and looking to build a career in Machine Learning. Refining your resume, taking some mock interviews, further deepen the understanding ML algorithms and sharpen your coding skills will definitely build a successful career for you!";
     } else {
         return "Congratulations on your achievement in Academia! You are more than ready to become either a ML researcher to speak at top tier conferences, or dive into the ML industry to make a huge impact.";

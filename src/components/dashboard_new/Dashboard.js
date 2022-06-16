@@ -36,13 +36,15 @@ const Dashboard = (props) => {
     console.log(props)
     const [score, setScore] = useState();
     const [survey_version, setSurveyVersion] = useState();
-    const [insight, setInsight] = useState();
+    const [insight, setInsight] = useState(false);
     const [currentScore, setCurrentScore] = useState()
     const [staticKeys, setStaticKeys] = useState({
         "ML_READINESS": ["Overall", "Data Preparation", "Model Development", "Model Deployment", "Model Monitoring", "Business Value"],
         "STUDENT_SURVEY": ["Overall", "Data Preparation", "Modeling", "Career Trajectory", "ML Aptitude", "Business Value"]
     })
     const [lastScrollTop, setLastScrollTop] = useState(0);
+    const [responsiveObj, setResponsiveObj] = useState(false);
+    const [timeSinceToggle, setTimeSinceToggle] = useState(0);
 
     const componentDidMount = async () => {
         // this.produceSampleDataSet()
@@ -54,7 +56,7 @@ const Dashboard = (props) => {
         // })
         if (!state.entities.user.score && !state.entities.surveys.score && state.session.user) {
             // await props.findScore(props.user);
-            await dispatch(userScore(state.session.user))
+            dispatch(userScore(state.session.user))
         }
         if (localStorage.authentication) {
             // props.authenticate(JSON.parse(localStorage.authentication))
@@ -66,7 +68,6 @@ const Dashboard = (props) => {
     }
 
     const findScoreChanges = () => {
-        console.log("find score changes");
         const prps = {archivalScore: state.entities.user.score, currentScore: state.entities.surveys.score}
         let results = UTIL.getScoresFunctionalComponent(prps);
 
@@ -91,9 +92,19 @@ const Dashboard = (props) => {
         document.addEventListener('scroll', handleScroll);
     }
 
+    const handleInsights = (e) => {
+        if (Date.now() - timeSinceToggle < 500) return;
+        // this.timeSinceToggle = Date.now();
+        setTimeSinceToggle(Date.now())
+        // toggleInsights(e);
+        UTIL.toggleInsights(e)
+    }
+
 
     const renderOverviewPanel = () => {
+        console.log("Render overview panel")
         console.log(staticKeys)
+        console.log(survey_version)
         return (
             <div className="overview-panel-container wide-dash-element" key="overview">
                 {/* <div className="dividers">
@@ -111,12 +122,15 @@ const Dashboard = (props) => {
     }
 
     const renderInsightComponents = (panelName, subscoreSection) => {
+        
         if (subscoreSection === "date") return;
         if (subscoreSection === "Overall") return;
-        if (!this.insight[subscoreSection]) return;
-        if (this.insight[subscoreSection].length < 1) return;
+        if (!insight.subscoreSection) return;
+        if (insight.subscoreSection.length < 1) return;
 
+        
         let key = `${panelName}-${subscoreSection.split(' ').join('-')}-key-` + Math.floor(Math.random() * 1000).toString()
+        console.log(key)
         return (
             <div
                 className={`${panelName}-component-container ${subscoreSection.split(' ').join('-')}-insights invisible offscreen`}
@@ -164,33 +178,41 @@ const Dashboard = (props) => {
                 contact.classList.add('offscreen-down');
             }
         }
-        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+
+        setLastScrollTop(st <= 0 ? 0 : st)
+        // lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
     }
 
     const renderOverviewComponents = (panelName, subscoreSection) => {
-        let classification = UTIL.setClassification(this);
-        let score = Math.ceil(this.score["Overall"]);
-        if (!this.responsiveObj) this.responsiveObj = calcProgressRingRadius({ classification, score, bool: true });
+        const prps = {survey_version: survey_version, score: score }
+        let classification = UTIL.setClassificationForFunctional(prps);
+        console.log("render overview components")
+        console.log(score);
+        let scr = Math.ceil(score["Overall"]);
+        if (!responsiveObj) setResponsiveObj(calcProgressRingRadius({ classification, scr, bool: true }));
         // let { radius, orientation, ratio, height, width } = this.responsiveObj;
 
+        console.log(subscoreSection)
         if (subscoreSection === "date") return;
         if (subscoreSection === "Overall") return (
             <div className="overall-score-container" key="overall-progress-ring-container">
                 <div className="mlr-score">Overall MLR Score</div>
-                <ProgressRing props={{ progress: score, classification }} />
+                <ProgressRing props={{ progress: scr, classification }} />
                 {/* <div className="score-meaning">what does my score mean</div> */}
                 <div className="classification-container">
                     <div className="classification">{classification}</div>
-                    <div className="moniker">{UTIL.setMoniker(this)}</div>
+                    <div className="moniker">{UTIL.setMoniker(score)}</div>
                 </div>
             </div>
         )
 
         let subscoreClass = subscoreSection.split(" ");
+        console.log(subscoreClass)
+        console.log(subscoreClass[0])
         return (
             <div
                 className={`${panelName}-component-container`}
-                onClick={this.handleInsights}
+                onClick={handleInsights}
                 data-subsection={subscoreSection.split(' ').join('-')}
                 key={panelName + "-" + subscoreSection.split(' ').join('-') + (Math.floor(Math.random() * 1000)).toString()}
             >
@@ -201,12 +223,13 @@ const Dashboard = (props) => {
                         <div className="subcat-description">{UTIL.setSubDefinitions(subscoreSection)}</div>
                     </div>
                     <div className={`${panelName}-score-container`}>
-                        <div className="subscore-percent">{Math.ceil(this.score[subscoreSection])}%</div>
+                        <div className="subscore-percent">{Math.ceil(score[subscoreSection])}%</div>
                         <img src={vector} alt="&caron;" className="subscore-cta" />
                     </div>
                 </div>
                 <div className="score-animation-bar-container">
-                    <div className={`score-animation-bar ${subscoreClass[0]}${subscoreClass.length > 1 ? `-${subscoreClass[1]}` : ""}`}></div>
+                {/* style={{width: Math.ceil(score[subscoreSection])}} */}
+                    <div className={`score-animation-bar ${subscoreClass[0]}${subscoreClass.length > 1 ? `-${subscoreClass[1]}` : ""}`} ></div>
                 </div>
             </div>
         )
@@ -233,10 +256,13 @@ const Dashboard = (props) => {
         componentDidMount()
     }, [])
 
+
+
     useEffect(() => {
         console.log("score changed")
-        console.log(state)
-        findScoreChanges()
+        if (state.entities.surveys.score || state.entities.user.score) {
+            findScoreChanges()
+        }
     }, [state.entities.surveys.score, state.entities.user.score])
 
     // useCallback(() => {
@@ -268,7 +294,7 @@ const Dashboard = (props) => {
                 </div>
                 <div className="dashboard-container">
                     {
-                        state.entities.activeComponent === DASHBOARD && [
+                        state.entities.activeComponent.component === DASHBOARD && [
                             renderOverviewPanel(),
                             <div className="divider"></div>,
                             renderInsightPanel()
@@ -311,4 +337,4 @@ const mDTP = dispatch => {
         findScore: email => dispatch(userScore(email)),
     };
 };
-export default connect(mapsToProps)(Dashboard);
+export default Dashboard;
