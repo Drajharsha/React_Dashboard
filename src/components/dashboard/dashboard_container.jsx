@@ -30,6 +30,5 @@ const mDTP = dispatch => {
     };
 };
 
-console.log("container executing");
 
-export default Dashboard;
+export default connect(mSTP, mDTP)(Dashboard);

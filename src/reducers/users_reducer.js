@@ -2,7 +2,6 @@ import { SET_SCORE } from '../actions/user_actions';
 
 const _nullUser = {
     score: null,
-    isLoaed: false,
 };
 
 const usersReducer = (state = _nullUser, action) => {
@@ -11,11 +10,7 @@ const usersReducer = (state = _nullUser, action) => {
             // debugger
             return {...state, 
                 score: action.score,
-                isLoaed: true,
             }
-        
-        case 'UPDATE_SCORE':
-            return {...state, isLoaed: false}
 
         default:
             return state;
