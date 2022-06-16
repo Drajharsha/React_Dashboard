@@ -28,12 +28,9 @@ import {connect} from 'react-redux'
 
 const Dashboard = (props) => {
 
-    console.log(")))))))))")
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    console.log(state);
 
-    console.log(props)
     const [score, setScore] = useState();
     const [survey_version, setSurveyVersion] = useState();
     const [insight, setInsight] = useState(false);
@@ -63,7 +60,6 @@ const Dashboard = (props) => {
             dispatch(authenticate(JSON.parse(localStorage.authentication)));
         }
 
-        console.log(props);
         
     }
 
@@ -71,7 +67,6 @@ const Dashboard = (props) => {
         const prps = {archivalScore: state.entities.user.score, currentScore: state.entities.surveys.score}
         let results = UTIL.getScoresFunctionalComponent(prps);
 
-        console.log(results)
         setScore(results[0]);
 
         let keys = Object.keys(results[0]);
@@ -102,9 +97,6 @@ const Dashboard = (props) => {
 
 
     const renderOverviewPanel = () => {
-        console.log("Render overview panel")
-        console.log(staticKeys)
-        console.log(survey_version)
         return (
             <div className="overview-panel-container wide-dash-element" key="overview">
                 {/* <div className="dividers">
@@ -130,7 +122,7 @@ const Dashboard = (props) => {
 
         
         let key = `${panelName}-${subscoreSection.split(' ').join('-')}-key-` + Math.floor(Math.random() * 1000).toString()
-        console.log(key)
+       
         return (
             <div
                 className={`${panelName}-component-container ${subscoreSection.split(' ').join('-')}-insights invisible offscreen`}
@@ -186,13 +178,11 @@ const Dashboard = (props) => {
     const renderOverviewComponents = (panelName, subscoreSection) => {
         const prps = {survey_version: survey_version, score: score }
         let classification = UTIL.setClassificationForFunctional(prps);
-        console.log("render overview components")
-        console.log(score);
+        
         let scr = Math.ceil(score["Overall"]);
         if (!responsiveObj) setResponsiveObj(calcProgressRingRadius({ classification, scr, bool: true }));
         // let { radius, orientation, ratio, height, width } = this.responsiveObj;
 
-        console.log(subscoreSection)
         if (subscoreSection === "date") return;
         if (subscoreSection === "Overall") return (
             <div className="overall-score-container" key="overall-progress-ring-container">
@@ -207,8 +197,7 @@ const Dashboard = (props) => {
         )
 
         let subscoreClass = subscoreSection.split(" ");
-        console.log(subscoreClass)
-        console.log(subscoreClass[0])
+        
         return (
             <div
                 className={`${panelName}-component-container`}
@@ -251,25 +240,16 @@ const Dashboard = (props) => {
     }
 
     useEffect(() => {
-        console.log("use effect getting called");
-        console.log(props);
         componentDidMount()
     }, [])
 
 
 
     useEffect(() => {
-        console.log("score changed")
         if (state.entities.surveys.score || state.entities.user.score) {
             findScoreChanges()
         }
     }, [state.entities.surveys.score, state.entities.user.score])
-
-    // useCallback(() => {
-    //     console.log("score changed call back")
-    //     console.log(state)
-    //     findScoreChanges()
-    // }, [state.entities.surveys.score, state.entities.user.score])
 
     return (
         <div id='dashboard-frame'>
