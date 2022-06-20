@@ -75,6 +75,18 @@ class SideNav extends React.Component {
         return false;
     }
 
+    navItemSelect(navItem) {
+        var header = document.getElementById("cont");
+        var btns = header.getElementsByClassName("containerblue");
+        for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+        });
+        }
+    }
+
     renderDropdown(items) {
         setTimeout(() => {
             let dropdown = document.querySelector('.dropdown-container')
@@ -137,8 +149,80 @@ class SideNav extends React.Component {
                             <div className="sidenav-user-profile">{this.props.user.name.slice(0, 1)}</div>
                             <div className="sidenav-username">Welcome back {this.props.user.name}</div>
                         </div> */}
-                        <div className="sidenav-links">
+                        <div className="sidenav-links-new">
+
+                        
+
                             <div className="sidenav-header">MLR Overview</div>
+
+                            <div class="container" id="cont">
+                            {/* <div class="containerblue active" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                <div class="btn top"></div>
+                                <div class="btn middle">Search</div>
+                                <div class="btn bottom"></div>
+                            </div> */}
+                            <div class="containerblue active" onClick={() => this.navItemSelect(DASHBOARD)}>
+                            
+                                <div class="btn topp"></div>
+                                <div class="btn top"></div>
+                                <div class="btn middle">
+                                <div className='row-item'>
+                                    <img src={dashboard} alt="" className="sidenav-logo" />
+                                    <div className='btn-nav'>Dashboard</div>
+                                </div>
+                                </div>
+                                <div class="btn bottom"></div>   
+                                <div class="btn bottomp"></div>
+                            </div>
+
+                            <div class="containerblue" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                <div class="btn topp"></div>
+                                <div class="btn top"></div>    
+                                <div class="btn middle">
+                                <div className='row-item'>
+                                    <img src={dashboard} alt="" className="sidenav-logo" />
+                                    <div className='btn-nav'>Survey</div>
+                                </div>
+                                </div>  
+                                <div class="btn bottom"></div>
+                                <div class="btn bottomp"></div>
+                            </div>
+
+                            <div class="containerblue" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                {/* <div class="btn top"></div>     */}
+                                <div class="btn middle">
+                                <div className='row-item'>
+                                    <img src={dashboard} alt="" className="sidenav-logo" />
+                                    <div className='btn-nav'>Heatmap</div>
+                                </div>
+                                </div>  
+                                {/* <div class="btn bottom"></div> */}
+                            </div>
+
+                            <div class="containerblue" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                <div class="btn top"></div>    
+                                <div class="btn middle">
+                                <div className='row-item'>
+                                    <img src={dashboard} alt="" className="sidenav-logo" />
+                                    <div className='btn-nav'>Scatter</div>
+                                </div>
+                                </div>  
+                                <div class="btn bottom"></div>
+                            </div>
+
+                            <div class="containerblue" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                <div class="btn top"></div>    
+                                <div class="btn middle">
+                                <div className='row-item'>
+                                    <img src={dashboard} alt="" className="sidenav-logo" />
+                                    <div className='btn-nav'>Compare</div>
+                                </div>
+                                </div>  
+                                <div class="btn bottom"></div>
+                            </div>
+
+                        </div>
+{/* 
                             <div 
                                 className="sidenav-link-container"
                                 data-component={DASHBOARD}    
@@ -186,7 +270,7 @@ class SideNav extends React.Component {
                                     Compare
                                 </div>
                                 <div className="construction-container" title="under construction"><img src={padlock} alt="" className="under-construction" /></div>
-                            </div>
+                            </div> */}
                             {/* <div 
                                 className="sidenav-link-container"
                                 data-component={STATS}    

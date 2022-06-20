@@ -34,6 +34,15 @@
     justify-content: space-around;
 }
 
+.sidenav-links-new {
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .sidenav-header {
     font-size: var(--font-tiny-header);
     font-family: MetropolisBold;
@@ -53,8 +62,22 @@
     margin-bottom: .5rem;
 }
 
+.row-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.btn-nav {
+    margin-left: 10px;
+    /* padding-left: 70px; */
+}
+
 .sidenav-logo {
     margin-left: 2rem;
+    margin-right: 10px;
     max-width: var(--font-tiny-body);
 }
 
@@ -331,6 +354,116 @@
     z-index: 1;
     color: lightgrey;
 }
+
+.container{
+  background-color: black;
+  width: 100%;
+}
+
+.containerblue{
+    /* background-color: blue; */
+    background: rgb(36, 42, 51);
+    width: 20px;
+    padding-left: 30px;
+  }
+  
+  
+  .containerblue.active > .top {
+    /* background-color: blue; */
+    background: black;
+    width: 170px;
+    /* height: 25px; */
+    border-radius: 25px 0px 25px 0px;
+    pointer-events: none;
+  }
+  
+  .containerblue.active > .middle{
+    background-color: black;
+    width: 170px;
+    border-radius: 25px;
+    /* padding: 20px; */
+  }
+  
+  .containerblue.active > .bottom {
+    background-color: black;
+    /* background: rgb(36, 42, 51); */
+    width: 170px;
+    /* height: 25px; */
+    /* border-radius: 0px 25px 0px 0px; */
+    pointer-events: none;
+  }
+  
+  
+  .top{
+    /* background-color: red; */
+    background: rgb(36, 42, 51);
+    width: 170px;
+    height: 25px;
+    pointer-events: none;
+    /* position: absolute; */
+    /* border-top-right-radius: 25px; */
+  }
+  
+  .middle{
+    /* background-color: blue; */
+    background: rgb(36, 42, 51);
+    width: 170px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* padding-left: 10px; */
+    cursor: pointer;
+    color: white;
+  }
+  
+  .bottom{
+    /* background-color: blue; */
+    background: rgb(36, 42, 51);
+    width: 170px;
+    height: 25px;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .topp{
+    width: 170px;
+    height: 25px;
+    pointer-events: none;
+    position: absolute;
+    border-radius: 0px 0px 25px 0px;
+    background: rgb(36, 42, 51);
+
+  }
+
+  .middlep{
+    background-color: red;
+    /* background: rgb(36, 42, 51); */
+    width: 170px;
+    height: 25px;
+    padding-top: 20px;
+    border-radius: 0px 25px 0px 25px;
+    /* padding-bottom: 20px; */
+    /* padding-left: 10px; */
+    cursor: pointer;
+    color: white;
+    position: absolute;
+  }
+
+  .bottomp{
+    /* background-color: blue; */
+    background: rgb(36, 42, 51);
+    width: 170px;
+    height: 25px;
+    pointer-events: none;
+    border-radius: 0px 25px 0px 0px;
+    position:absolute;
+    /* margin-top: 50px; */
+    /* bottom: 5%; */
+    /* width: 100%; */
+  }
+
+  .maindiv{
+      position:sticky;
+  }
 
 @media(max-width: 500px) {
     .sidenav-frame {
