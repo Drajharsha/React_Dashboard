@@ -189,18 +189,21 @@ class SideNav extends React.Component {
                             </div>
 
                             <div class="containerblue" onClick={() => this.navItemSelect(DASHBOARD)}>
-                                {/* <div class="btn top"></div>     */}
+                                <div class="btn topp"></div>
+                                <div class="btn top"></div> 
                                 <div class="btn middle">
                                 <div className='row-item'>
                                     <img src={dashboard} alt="" className="sidenav-logo" />
                                     <div className='btn-nav'>Heatmap</div>
                                 </div>
                                 </div>  
-                                {/* <div class="btn bottom"></div> */}
+                                <div class="btn bottom"></div>
+                                <div class="btn bottomp"></div>
                             </div>
 
                             <div class="containerblue" onClick={() => this.navItemSelect(DASHBOARD)}>
-                                <div class="btn top"></div>    
+                                <div class="btn topp"></div>
+                                <div class="btn top"></div>     
                                 <div class="btn middle">
                                 <div className='row-item'>
                                     <img src={dashboard} alt="" className="sidenav-logo" />
@@ -208,9 +211,11 @@ class SideNav extends React.Component {
                                 </div>
                                 </div>  
                                 <div class="btn bottom"></div>
+                                <div class="btn bottomp"></div>
                             </div>
 
                             <div class="containerblue" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                <div class="btn topp"></div>
                                 <div class="btn top"></div>    
                                 <div class="btn middle">
                                 <div className='row-item'>
@@ -219,6 +224,7 @@ class SideNav extends React.Component {
                                 </div>
                                 </div>  
                                 <div class="btn bottom"></div>
+                                <div class="btn bottomp"></div>
                             </div>
 
                         </div>
