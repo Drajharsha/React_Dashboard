@@ -1,6 +1,10 @@
 .progress-ring-container {
     /* position: absolute;
     top: 20px; */
+
+    margin-left: 17px;
+    margin-top: 13px;
+    margin-bottom: 13px;
 }
 
 .progress-ring {
@@ -8,10 +12,11 @@
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
   border-radius: 3px;
-   -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
-  filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+   -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .2));
+  filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .2));
   /* stroke: linear-gradient(red, blue);
   stroke: green; */
+  border-radius: 5px;
 }
 
 .progress-ring:hover {
@@ -47,14 +52,51 @@
 
 .overall-percent {
     font: 30px MetropolisLight;
-    fill: rgb(47, 119, 253);
-    fill: black;
+    fill: #BACEE0;
+    /* fill: black; */
     margin-left: auto;
     margin-right: auto;
 }
 
 .ml-role-container {
 
+}
+
+.margin-top-7 {
+    margin-top: 7px;
+}
+
+.color-light-gray {
+    color: #BACEE0;
+}
+
+.font-size-18 {
+    font-size: 18px;
+}
+
+.font-size-14 {
+    font-size: 14px;
+}
+
+.font-size-10 {
+    font-size: 10px;
+}
+
+.font-size-8 {
+    font-size: 8px;
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.font-weight-300 {
+    font-weight: 300;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }
 
 @media(min-width: 1000px) {

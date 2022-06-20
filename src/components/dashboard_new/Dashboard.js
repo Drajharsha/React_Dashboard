@@ -19,17 +19,20 @@ import { authenticate } from '../../actions/session_actions';
 import { activateComparativeAnalysis, closeComparativeAnalysis, activateSentimentAnalysis, closeSentimentAnalysis, activateReccomendations, closeReccomendations } from '../../actions/dashboard_actions';
 // import * as APIUtil from '../util/api/user_api_util';
 // import * as APIUtil from '../../'
-
+import OverallMLRScore from "./OverallMLRScore";
 import vector from '../../icons/vector.svg';
 import { set } from "react-ga";
 import LoginPopup from "../login/login_popup";
 import {connect} from 'react-redux'
+import ScoreListComponent from "./ScoreListComponent";
 
 
 const Dashboard = (props) => {
 
     const state = useSelector(state => state);
     const dispatch = useDispatch();
+
+    console.log(state);
 
     const [score, setScore] = useState();
     const [survey_version, setSurveyVersion] = useState();
@@ -185,7 +188,7 @@ const Dashboard = (props) => {
 
         if (subscoreSection === "date") return;
         if (subscoreSection === "Overall") return (
-            <div className="overall-score-container" key="overall-progress-ring-container">
+            <div className="overall-score-container bg-dark-blue rounder-corner" key="overall-progress-ring-container">
                 <div className="mlr-score">Overall MLR Score</div>
                 <ProgressRing props={{ progress: scr, classification }} />
                 {/* <div className="score-meaning">what does my score mean</div> */}
@@ -200,7 +203,7 @@ const Dashboard = (props) => {
         
         return (
             <div
-                className={`${panelName}-component-container`}
+                className={`${panelName}-component-container`} 
                 onClick={handleInsights}
                 data-subsection={subscoreSection.split(' ').join('-')}
                 key={panelName + "-" + subscoreSection.split(' ').join('-') + (Math.floor(Math.random() * 1000)).toString()}
@@ -218,7 +221,7 @@ const Dashboard = (props) => {
                 </div>
                 <div className="score-animation-bar-container">
                 {/* style={{width: Math.ceil(score[subscoreSection])}} */}
-                    <div className={`score-animation-bar ${subscoreClass[0]}${subscoreClass.length > 1 ? `-${subscoreClass[1]}` : ""}`} ></div>
+                    <div className={`score-animation-bar ${subscoreClass[0]}${subscoreClass.length > 1 ? `-${subscoreClass[1]}` : ""}`}></div>
                 </div>
             </div>
         )
@@ -254,7 +257,10 @@ const Dashboard = (props) => {
     return (
         <div id='dashboard-frame'>
                 <Sidenav />
-                <div id="dashboard-header">
+
+                {/* header part */}
+                {/* this has to be removed from here */}
+                {/* <div id="dashboard-header">
                     <div className="logo-name-container">
                         <a href="/" className="home-link"><img src={teal_logo} alt="loxz digital" className="header-logo" /></a>
                         <img src={gradient} alt="" className="gradient" />
@@ -270,11 +276,19 @@ const Dashboard = (props) => {
                             <UserProfile />
                         </div>
                     </div>
-                    {/* <img src={survey} alt="" className="go-to-survey-icon" title='go to survey' onClick={() => this.redirectTo('/')}/> */}
-                </div>
+
+                    comment 280
+                     <img src={survey} alt="" className="go-to-survey-icon" title='go to survey' onClick={() => this.redirectTo('/')}/> 
+                </div> */}
+
+                {/* header part ends here. */}
+
+
                 <div className="dashboard-container">
                     {
                         state.entities.activeComponent.component === DASHBOARD && [
+                            <OverallMLRScore survey_version={survey_version} score={score} />,
+                            // <ScoreListComponent user={state.entities.user} />,
                             renderOverviewPanel(),
                             <div className="divider"></div>,
                             renderInsightPanel()

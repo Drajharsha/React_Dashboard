@@ -56,7 +56,6 @@ export const setClassificationForFunctional = that => {
 }
 
 export const setMoniker = that => {
-    console.log(that)
     if (that.Overall < 25) {
         return "Glad you entered the realm of Machine Learning!  You are currently an ML Observer who just started exploring ML basics from a theoretical foundation such as probability and statistics to programming skills. Keep up the Good Work!";
     } else if (that.Overall < 50) {
