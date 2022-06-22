@@ -22,6 +22,16 @@ import share from '../../icons/loxz-share.SVG';
 import qr from '../../icons/loxz-qr-code.SVG';
 import download from '../../icons/loxz-download.SVG';
 import padlock from '../../icons/padlock.png';
+import dashboard_new from '../../icons/dashboard_new.png'
+import group_new from '../../icons/group_new.png'
+import heatmap_new from '../../icons/heatmap_new.png'
+import scatter_new from '../../icons/scatter_new.png'
+import compare_new from '../../icons/compare_new.png'
+import reports_new from '../../icons/reports_new.png'
+import share_new from '../../icons/share_new.png'
+import qr_code_new from '../../icons/qr_code_new.png'
+import download_report_new from '../../icons/download_report_new.png'
+import feedback_new from '../../icons/feedback_new.png'
 
 class SideNav extends React.Component {
     constructor(props) {
@@ -163,32 +173,107 @@ class SideNav extends React.Component {
                         {/* <div className="sidenav-links-new"> */}
 
                             <div class="navigation">
+                            
                                 <ul>
+                                <div className="sidenav-header">MRL Overview</div>
                                     <li class="list active" onClick={() => this.navItemSelect(DASHBOARD)}>
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            <span class="icon"></span>
-                                            <img src={dashboard} alt="" className="sidenav-logo" />
-                                            <span class="title">Home</span>
+                                            {/* <span class="icon"></span> */}
+                                            <img src={dashboard_new} alt="" className="sidenav-logo" />
+                                            <span class="title">Dashboard</span>
                                         </a>
                                     </li>
                                     <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            <span class="icon"></span>
-                                            <img src={dashboard} alt="" className="sidenav-logo" />
-                                            <span class="title">Home 1</span>
+                                            {/* <span class="icon"></span> */}
+                                            <img src={group_new} alt="" className="sidenav-logo" />
+                                            <span class="title">Survey</span>
                                         </a>
                                     </li>
                                     <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            <span class="icon"></span>
-                                            <img src={dashboard} alt="" className="sidenav-logo" />
-                                            <span class="title">Home 2</span>
+                                            {/* <span class="icon"></span> */}
+                                            <img src={heatmap_new} alt="" className="sidenav-logo" />
+                                            <span class="title">Heatmap</span>
+                                        </a>
+                                    </li>
+                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                        <b></b>
+                                        <b></b>
+                                        <a>
+                                            {/* <span class="icon"></span> */}
+                                            <img src={scatter_new} alt="" className="sidenav-logo" />
+                                            <span class="title">Scatter</span>
+                                        </a>
+                                    </li>
+                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                        <b></b>
+                                        <b></b>
+                                        <a>
+                                            {/* <span class="icon"></span> */}
+                                            <img src={compare_new} alt="" className="sidenav-logo" />
+                                            <span class="title">Compare</span>
+                                        </a>
+                                    </li>
+                                    <div className="sidenav-header-res">Resources</div>
+                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                        <b></b>
+                                        <b></b>
+                                        <a>
+                                            {/* <span class="icon"></span> */}
+                                            <img src={compare_new} alt="" className="sidenav-logo" />
+                                            <span class="title">Leaderboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                        <b></b>
+                                        <b></b>
+                                        <a>
+                                            {/* <span class="icon"></span> */}
+                                            <img src={reports_new} alt="" className="sidenav-logo" />
+                                            <span class="title">Reports</span>
+                                        </a>
+                                    </li>
+                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                        <b></b>
+                                        <b></b>
+                                        <a>
+                                            {/* <span class="icon"></span> */}
+                                            <img src={share_new} alt="" className="sidenav-logo" />
+                                            <span class="title">Share</span>
+                                        </a>
+                                    </li>
+                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                        <b></b>
+                                        <b></b>
+                                        <a>
+                                            {/* <span class="icon"></span> */}
+                                            <img src={qr_code_new} alt="" className="sidenav-logo" />
+                                            <span class="title">QR Code</span>
+                                        </a>
+                                    </li>
+                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                        <b></b>
+                                        <b></b>
+                                        <a>
+                                            {/* <span class="icon"></span> */}
+                                            <img src={download_report_new} alt="" className="sidenav-logo" />
+                                            <span class="title">Download Report</span>
+                                        </a>
+                                    </li>
+                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                        <b></b>
+                                        <b></b>
+                                        <a>
+                                            {/* <span class="icon"></span> */}
+                                            <img src={feedback_new} alt="" className="sidenav-logo" />
+                                            <span class="title">Feedback</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -388,12 +473,18 @@ class SideNav extends React.Component {
                                 className="pre-footer-link-container"
                                 data-component={FEEDBACK}    
                             >
-                                <img src={feedback} alt="" className="sidenav-logo" />
+                                {/* <img src={feedback} alt="" className="sidenav-logo" /> */}
                                 <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
                                     loxz.com
                                 </div>
+                                <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
+                                    Resources
+                                </div>
+                                <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
+                                    Privacy Policy
+                                </div>
                             </div>
-                            <div 
+                            {/* <div 
                                 className="pre-footer-link-container"
                                 data-component={FEEDBACK}    
                             >
@@ -401,8 +492,8 @@ class SideNav extends React.Component {
                                 <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
                                     Resources
                                 </div>
-                            </div>
-                            <div 
+                            </div> */}
+                            {/* <div 
                                 className="pre-footer-link-container"
                                 data-component={FEEDBACK}    
                             >
@@ -410,7 +501,7 @@ class SideNav extends React.Component {
                                 <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
                                     Privacy Policy
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="sidenav-footer-container">
                             <div className="sidenav-footer-links-container">
