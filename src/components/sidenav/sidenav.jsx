@@ -172,9 +172,22 @@ class SideNav extends React.Component {
                         </div> */}
                         {/* <div className="sidenav-links-new"> */}
 
+                        
+
                             <div class="navigation">
                             
                                 <ul>
+
+                                <div className='divusername'>
+                                    {/* <div> */}
+                                        <img src={dashboard_new} />
+                                        <div>
+                                            <div >Welcome</div>
+                                            <div >Tony Danza</div>
+                                        </div>
+                                        
+                                    {/* </div> */}
+                                </div>
                                 <div className="sidenav-header">MRL Overview</div>
                                     <li class="list active" onClick={() => this.navItemSelect(DASHBOARD)}>
                                         <b></b>
