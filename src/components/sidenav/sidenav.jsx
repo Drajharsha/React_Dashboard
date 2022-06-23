@@ -32,6 +32,8 @@ import share_new from '../../icons/share_new.png'
 import qr_code_new from '../../icons/qr_code_new.png'
 import download_report_new from '../../icons/download_report_new.png'
 import feedback_new from '../../icons/feedback_new.png'
+import profile_pic from '../../icons/profile_pic.png'
+import main_logo from '../../icons/main_logo.png'
 
 class SideNav extends React.Component {
     constructor(props) {
@@ -177,13 +179,19 @@ class SideNav extends React.Component {
                             <div class="navigation">
                             
                                 <ul>
-
-                                <div className='divusername'>
+                                <div className='mainlogo'>
+                                    <img src={main_logo} />
+                                </div>
+                                {/* className='divusername'  */}
+                                <div style={{display: 'flex', flexDirection: 'row', alignItems:'center', marginTop:'30px',marginLeft:'10px'}}>
                                     {/* <div> */}
-                                        <img src={dashboard_new} />
-                                        <div>
-                                            <div >Welcome</div>
-                                            <div >Tony Danza</div>
+                                        <div className='profilelogo'>
+                                            <img src={profile_pic} />
+                                        </div>
+                                        
+                                        <div className='divusername'>
+                                            <div className='welcome'>Welcome</div>
+                                            <div className='username'>Tony Danza</div>
                                         </div>
                                         
                                     {/* </div> */}
