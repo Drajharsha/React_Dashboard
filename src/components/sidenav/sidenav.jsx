@@ -183,7 +183,7 @@ class SideNav extends React.Component {
                                     <img src={main_logo} />
                                 </div>
                                 {/* className='divusername'  */}
-                                <div style={{display: 'flex', flexDirection: 'row', alignItems:'center', marginTop:'30px',marginLeft:'10px'}}>
+                                <div style={{display: 'flex', flexDirection: 'row', alignItems:'center', marginTop:'30px',marginLeft:'20px'}}>
                                     {/* <div> */}
                                         <div className='profilelogo'>
                                             <img src={profile_pic} />
@@ -206,7 +206,7 @@ class SideNav extends React.Component {
                                             <span class="title">Dashboard</span>
                                         </a>
                                     </li>
-                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                    <li class="list" onClick={() => this.navItemSelect(SURVEY)}>
                                         <b></b>
                                         <b></b>
                                         <a>
@@ -215,7 +215,7 @@ class SideNav extends React.Component {
                                             <span class="title">Survey</span>
                                         </a>
                                     </li>
-                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                    <li class="list" onClick={() => this.navItemSelect(HEATMAP)}>
                                         <b></b>
                                         <b></b>
                                         <a>
@@ -224,7 +224,7 @@ class SideNav extends React.Component {
                                             <span class="title">Heatmap</span>
                                         </a>
                                     </li>
-                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                    <li class="list" onClick={() => this.navItemSelect(SCATTER)}>
                                         <b></b>
                                         <b></b>
                                         <a>
@@ -233,7 +233,7 @@ class SideNav extends React.Component {
                                             <span class="title">Scatter</span>
                                         </a>
                                     </li>
-                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                    <li class="list" onClick={() => this.navItemSelect(COMPARE)}>
                                         <b></b>
                                         <b></b>
                                         <a>
@@ -243,7 +243,7 @@ class SideNav extends React.Component {
                                         </a>
                                     </li>
                                     <div className="sidenav-header-res">Resources</div>
-                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                    <li class="list" onClick={() => this.navItemSelect(LEADERBOARD)}>
                                         <b></b>
                                         <b></b>
                                         <a>
@@ -252,7 +252,7 @@ class SideNav extends React.Component {
                                             <span class="title">Leaderboard</span>
                                         </a>
                                     </li>
-                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                    <li class="list" onClick={() => this.navItemSelect(REPORTS)}>
                                         <b></b>
                                         <b></b>
                                         <a>
@@ -261,7 +261,7 @@ class SideNav extends React.Component {
                                             <span class="title">Reports</span>
                                         </a>
                                     </li>
-                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                    <li class="list" onClick={() => this.navItemSelect(SHARE)}>
                                         <b></b>
                                         <b></b>
                                         <a>
@@ -270,7 +270,7 @@ class SideNav extends React.Component {
                                             <span class="title">Share</span>
                                         </a>
                                     </li>
-                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                    <li class="list" onClick={() => this.navItemSelect(QR_CODE)}>
                                         <b></b>
                                         <b></b>
                                         <a>
@@ -279,7 +279,7 @@ class SideNav extends React.Component {
                                             <span class="title">QR Code</span>
                                         </a>
                                     </li>
-                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                    <li class="list" onClick={() => this.navItemSelect(DOWNLOAD)}>
                                         <b></b>
                                         <b></b>
                                         <a>
@@ -288,7 +288,7 @@ class SideNav extends React.Component {
                                             <span class="title">Download Report</span>
                                         </a>
                                     </li>
-                                    <li class="list" onClick={() => this.navItemSelect(DASHBOARD)}>
+                                    <li class="list" onClick={() => this.navItemSelect(FEEDBACK)}>
                                         <b></b>
                                         <b></b>
                                         <a>
@@ -297,7 +297,34 @@ class SideNav extends React.Component {
                                             <span class="title">Feedback</span>
                                         </a>
                                     </li>
+
+                                    {/* <div className="pre-footer-cta-container"> */}
+                                        <div 
+                                            className="pre-footer-link-container"
+                                            data-component={FEEDBACK}    
+                                        >
+                                            {/* <img src={feedback} alt="" className="sidenav-logo" /> */}
+                                            <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
+                                                loxz.com
+                                            </div>
+                                            <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
+                                                Resources
+                                            </div>
+                                            <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
+                                                Privacy Policy
+                                            </div>
+                                        </div>
+
+                                    {/* </div> */}
+                                    {/* <div className="sidenav-footer-container"> */}
+                                        {/* <div className="sidenav-footer-links-container">
+                                        </div> */}
+                                            <div className='sidenav-footer-container'>
+                                                <span className="sidenav-footer-link-span">© 2022, Loxz Digital Group, Inc</span>
+                                            </div>
+                                    {/* </div> */}
                                 </ul>
+                                
                             </div>
 
                             {/* <div className="sidenav-header">MLR Overview</div>
@@ -489,57 +516,7 @@ class SideNav extends React.Component {
                                 <div className="construction-container" title="under construction"><img src={padlock} alt="" className="under-construction" /></div>
                             </div> */}
                         {/* </div> */}
-                        <div className="pre-footer-cta-container">
-                            <div 
-                                className="pre-footer-link-container"
-                                data-component={FEEDBACK}    
-                            >
-                                {/* <img src={feedback} alt="" className="sidenav-logo" /> */}
-                                <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
-                                    loxz.com
-                                </div>
-                                <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
-                                    Resources
-                                </div>
-                                <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
-                                    Privacy Policy
-                                </div>
-                            </div>
-                            {/* <div 
-                                className="pre-footer-link-container"
-                                data-component={FEEDBACK}    
-                            >
-                                <img src={feedback} alt="" className="sidenav-logo" />
-                                <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
-                                    Resources
-                                </div>
-                            </div> */}
-                            {/* <div 
-                                className="pre-footer-link-container"
-                                data-component={FEEDBACK}    
-                            >
-                                <img src={feedback} alt="" className="sidenav-logo" />
-                                <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
-                                    Privacy Policy
-                                </div>
-                            </div> */}
-                        </div>
-                        <div className="sidenav-footer-container">
-                            <div className="sidenav-footer-links-container">
-                                {/* <div className="sidenav-footer-link-container">
-                                    <span className="sidenav-footer-link-span">loxz.com</span>
-                                </div>
-                                <div className="sidenav-footer-link-container">
-                                    <span className="sidenav-footer-link-span">Resources</span>
-                               </div>
-                                <div className="sidenav-footer-link-container">
-                                    <span className="sidenav-footer-link-span">Privacy Policy</span>
-                                </div> */}
-                            </div>
-                                <div className="sidenav-footer-link-container">
-                                    <span className="sidenav-footer-link-span">© 2022, Loxz Digital Group, Inc</span>
-                                </div>
-                        </div>
+                        
                     </div>
                     {/* <script>
                         let list = document.querySelectorAll('.list');
