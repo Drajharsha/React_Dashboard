@@ -184,7 +184,6 @@ class SideNav extends React.Component {
                                 </div>
                                 {/* className='divusername'  */}
                                 <div style={{display: 'flex', flexDirection: 'row', alignItems:'center', marginTop:'30px',marginLeft:'20px'}}>
-                                    {/* <div> */}
                                         <div className='profilelogo'>
                                             <img src={profile_pic} />
                                         </div>
@@ -193,15 +192,12 @@ class SideNav extends React.Component {
                                             <div className='welcome'>Welcome</div>
                                             <div className='username'>Tony Danza</div>
                                         </div>
-                                        
-                                    {/* </div> */}
                                 </div>
                                 <div className="sidenav-header">MRL Overview</div>
                                     <li class="list active" onClick={() => this.navItemSelect(DASHBOARD)}>
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            {/* <span class="icon"></span> */}
                                             <img src={dashboard_new} alt="" className="sidenav-logo" />
                                             <span class="title">Dashboard</span>
                                         </a>
@@ -210,7 +206,6 @@ class SideNav extends React.Component {
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            {/* <span class="icon"></span> */}
                                             <img src={group_new} alt="" className="sidenav-logo" />
                                             <span class="title">Survey</span>
                                         </a>
@@ -219,7 +214,6 @@ class SideNav extends React.Component {
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            {/* <span class="icon"></span> */}
                                             <img src={heatmap_new} alt="" className="sidenav-logo" />
                                             <span class="title">Heatmap</span>
                                         </a>
@@ -228,7 +222,6 @@ class SideNav extends React.Component {
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            {/* <span class="icon"></span> */}
                                             <img src={scatter_new} alt="" className="sidenav-logo" />
                                             <span class="title">Scatter</span>
                                         </a>
@@ -237,7 +230,6 @@ class SideNav extends React.Component {
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            {/* <span class="icon"></span> */}
                                             <img src={compare_new} alt="" className="sidenav-logo" />
                                             <span class="title">Compare</span>
                                         </a>
@@ -247,7 +239,6 @@ class SideNav extends React.Component {
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            {/* <span class="icon"></span> */}
                                             <img src={compare_new} alt="" className="sidenav-logo" />
                                             <span class="title">Leaderboard</span>
                                         </a>
@@ -256,7 +247,6 @@ class SideNav extends React.Component {
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            {/* <span class="icon"></span> */}
                                             <img src={reports_new} alt="" className="sidenav-logo" />
                                             <span class="title">Reports</span>
                                         </a>
@@ -265,7 +255,6 @@ class SideNav extends React.Component {
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            {/* <span class="icon"></span> */}
                                             <img src={share_new} alt="" className="sidenav-logo" />
                                             <span class="title">Share</span>
                                         </a>
@@ -274,7 +263,6 @@ class SideNav extends React.Component {
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            {/* <span class="icon"></span> */}
                                             <img src={qr_code_new} alt="" className="sidenav-logo" />
                                             <span class="title">QR Code</span>
                                         </a>
@@ -283,7 +271,6 @@ class SideNav extends React.Component {
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            {/* <span class="icon"></span> */}
                                             <img src={download_report_new} alt="" className="sidenav-logo" />
                                             <span class="title">Download Report</span>
                                         </a>
@@ -292,18 +279,15 @@ class SideNav extends React.Component {
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            {/* <span class="icon"></span> */}
                                             <img src={feedback_new} alt="" className="sidenav-logo" />
                                             <span class="title">Feedback</span>
                                         </a>
                                     </li>
 
-                                    {/* <div className="pre-footer-cta-container"> */}
                                         <div 
                                             className="pre-footer-link-container"
                                             data-component={FEEDBACK}    
                                         >
-                                            {/* <img src={feedback} alt="" className="sidenav-logo" /> */}
                                             <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
                                                 loxz.com
                                             </div>
@@ -315,221 +299,13 @@ class SideNav extends React.Component {
                                             </div>
                                         </div>
 
-                                    {/* </div> */}
-                                    {/* <div className="sidenav-footer-container"> */}
-                                        {/* <div className="sidenav-footer-links-container">
-                                        </div> */}
-                                            <div className='sidenav-footer-container'>
-                                                <span className="sidenav-footer-link-span">© 2022, Loxz Digital Group, Inc</span>
-                                            </div>
-                                    {/* </div> */}
+                                        <div className='sidenav-footer-container'>
+                                            <span className="sidenav-footer-link-span">© 2022, Loxz Digital Group, Inc</span>
+                                        </div>
                                 </ul>
                                 
                             </div>
-
-                            {/* <div className="sidenav-header">MLR Overview</div>
-
-                            <div class="container" id="cont">
-                            <div class="containerblue active" onClick={() => this.navItemSelect(DASHBOARD)}>
-                            
-                                <div class="btn topp"></div>
-                                <div class="btn top"></div>
-                                <div class="btn middle">
-                                <div className='row-item'>
-                                    <img src={dashboard} alt="" className="sidenav-logo" />
-                                    <div className='btn-nav'>Dashboard</div>
-                                </div>
-                                </div>
-                                <div class="btn bottom"></div>   
-                                <div class="btn bottomp"></div>
-                            </div>
-
-                            <div class="containerblue" onClick={() => this.navItemSelect(DASHBOARD)}>
-                                <div class="btn topp"></div>
-                                <div class="btn top"></div>    
-                                <div class="btn middle">
-                                <div className='row-item'>
-                                    <img src={dashboard} alt="" className="sidenav-logo" />
-                                    <div className='btn-nav'>Survey</div>
-                                </div>
-                                </div>  
-                                <div class="btn bottom"></div>
-                                <div class="btn bottomp"></div>
-                            </div>
-
-                            <div class="containerblue" onClick={() => this.navItemSelect(DASHBOARD)}>
-                                <div class="btn topp"></div>
-                                <div class="btn top"></div> 
-                                <div class="btn middle">
-                                <div className='row-item'>
-                                    <img src={dashboard} alt="" className="sidenav-logo" />
-                                    <div className='btn-nav'>Heatmap</div>
-                                </div>
-                                </div>  
-                                <div class="btn bottom"></div>
-                                <div class="btn bottomp"></div>
-                            </div>
-
-                            <div class="containerblue" onClick={() => this.navItemSelect(DASHBOARD)}>
-                                <div class="btn topp"></div>
-                                <div class="btn top"></div>     
-                                <div class="btn middle">
-                                <div className='row-item'>
-                                    <img src={dashboard} alt="" className="sidenav-logo" />
-                                    <div className='btn-nav'>Scatter</div>
-                                </div>
-                                </div>  
-                                <div class="btn bottom"></div>
-                                <div class="btn bottomp"></div>
-                            </div>
-
-                            <div class="containerblue" onClick={() => this.navItemSelect(DASHBOARD)}>
-                                <div class="btn topp"></div>
-                                <div class="btn top"></div>    
-                                <div class="btn middle">
-                                <div className='row-item'>
-                                    <img src={dashboard} alt="" className="sidenav-logo" />
-                                    <div className='btn-nav'>Compare</div>
-                                </div>
-                                </div>  
-                                <div class="btn bottom"></div>
-                                <div class="btn bottomp"></div>
-                            </div>
-
-                        </div> */}
-{/* 
-                            <div 
-                                className="sidenav-link-container"
-                                data-component={DASHBOARD}    
-                            >
-                                <img src={dashboard} alt="" className="sidenav-logo" />
-                                <div className="sidenav-link" onClick={() => this.activate(DASHBOARD)}>
-                                    Dashboard
-                                </div>
-                            </div>
-                            <div 
-                                className="sidenav-link-container" 
-                                date-component={SURVEY}
-                            >
-                                <img src={reports} alt="" className="sidenav-logo" />
-                                <div className="sidenav-link" onClick={() => this.navigateTo(SURVEY)}>
-                                    Survey
-                                </div>
-                            </div>
-                            <div 
-                                className="sidenav-link-container"
-                                data-component={HEATMAP}        
-                            >
-                                <img src={heatmap} alt="" className="sidenav-logo" />
-                                <div className="sidenav-link" onClick={() => this.activate(HEATMAP)}>
-                                    Heatmap
-                                </div>
-                                <div className="construction-container" title="under construction"><img src={padlock} alt="" className="under-construction" /></div>
-                            </div>
-                            <div 
-                                className="sidenav-link-container" 
-                                data-component={SCATTER}    
-                            >
-                                <img src={scatter} alt="" className="sidenav-logo" />
-                                <div className="sidenav-link" onClick={() => this.activate(SCATTER)}>
-                                    Scatter
-                                </div>
-                                <div className="construction-container" title="under construction"><img src={padlock} alt="" className="under-construction" /></div>
-                            </div>
-                            <div 
-                                className="sidenav-link-container"
-                                data-component={COMPARE}    
-                            >
-                                <img src={compare} alt="" className="sidenav-logo" />
-                                <div className="sidenav-link" onClick={() => this.activate(COMPARE)}>
-                                    Compare
-                                </div>
-                                <div className="construction-container" title="under construction"><img src={padlock} alt="" className="under-construction" /></div>
-                            </div> */}
-                            {/* <div 
-                                className="sidenav-link-container"
-                                data-component={STATS}    
-                            >
-                                <img src={compare} alt="" className="sidenav-logo" />
-                                <div className="sidenav-link" onClick={() => this.activate(STATS)}>
-                                    Aggregate Stats
-                                </div>
-                            </div> */}
-                            {/* <div className="sidenav-header">Resources</div>
-                            <div 
-                                className="sidenav-link-container"
-                                data-component={LEADERBOARD}
-                            >
-                                <img src={leaderboard} alt="" className="sidenav-logo" />
-                                <div className="sidenav-link" onClick={() => this.activate(LEADERBOARD)}>
-                                    Leaderboard
-                                </div>
-                                <div className="construction-container" title="under construction"><img src={padlock} alt="" className="under-construction" /></div>
-                            </div>
-                            <div 
-                                className="sidenav-link-container"
-                                data-component={REPORTS}    
-                            >
-                                <img src={reports} alt="" className="sidenav-logo" />
-                                <div className="sidenav-link" onClick={() => this.navigateTo("REPORTS")}>
-                                    Reports
-                                </div>
-                                <div className="construction-container" title="under construction"><img src={padlock} alt="" className="under-construction" /></div>
-                            </div>
-                            <div 
-                                className="sidenav-link-container"
-                                data-component={SHARE}    
-                            >
-                                <img src={share} alt="" className="sidenav-logo" />
-                                <div className="sidenav-link" onClick={() => this.activate(SHARE)}>
-                                    Share
-                                </div>
-                                <div className="construction-container" title="under construction"><img src={padlock} alt="" className="under-construction" /></div>
-                            </div>
-                            <div 
-                                className="sidenav-link-container"
-                                data-component={QR_CODE}    
-                            >
-                                <img src={qr} alt="" className="sidenav-logo" />
-                                <div className="sidenav-link" onClick={() => this.activate(QR_CODE)}>
-                                    QR Code
-                                </div>
-                                <div className="construction-container" title="under construction"><img src={padlock} alt="" className="under-construction" /></div>
-                            </div>
-                            <div 
-                                className="sidenav-link-container"
-                                data-component={DOWNLOAD}    
-                            >
-                                <img src={download} alt="" className="sidenav-logo" />
-                                <div className="sidenav-link" onClick={() => this.activate(DOWNLOAD)}>
-                                    Download Report
-                                </div>
-                            </div>
-                            <div 
-                                className="sidenav-link-container"
-                                data-component={FEEDBACK}    
-                            >
-                                <img src={feedback} alt="" className="sidenav-logo" />
-                                <div className="sidenav-link" onClick={() => this.activate(FEEDBACK)}>
-                                    Feedback
-                                </div>
-                                <div className="construction-container" title="under construction"><img src={padlock} alt="" className="under-construction" /></div>
-                            </div> */}
-                        {/* </div> */}
-                        
                     </div>
-                    {/* <script>
-                        let list = document.querySelectorAll('.list');
-                        for (let i=0; i<list.length; i++){
-                            list[i].onclick = function(){
-                                let j = 0;
-                                while(j < list.length){
-                                    list[j++].className = 'list';
-                                }
-                                list[i].className = 'list active';
-                            }
-                        }
-                    </script> */}
                 </div>
             </>
         )
