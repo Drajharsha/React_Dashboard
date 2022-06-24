@@ -22,11 +22,12 @@ class ProgressRing extends React.Component {
         console.log(classification);
         const strokeDashoffset = this.circumference - progress / 100 * this.circumference;
         let { radius, fontSize, stroke, pos } = calcProgressRingRadius({ progress, classification, "bool": true });
-        this.normalizedRadius = radius - stroke * 2;
+        // this.normalizedRadius = radius - stroke * 2;
+        this.normalizedRadius = (this.props.size) - stroke * 2;
         this.circumference = this.normalizedRadius * 2 * Math.PI;
-        console.log(stroke)
-        console.log(this.normalizedRadius)
         const size = this.props.size;
+
+        console.log(progress);
 
         return (
             <div className="progress-ring-container" onClick={() => this.goToMeaning()}>
@@ -51,12 +52,12 @@ class ProgressRing extends React.Component {
                         stroke="#122434"
                         fill="transparent"
                         strokeWidth={5}
-                        strokeDasharray={this.circumference + ' ' + this.circumference}
+                        strokeDasharray={this.circumference}
                         style={{ strokeDashoffset: 0 }}
-                        // r={this.normalizedRadius}
-                        r={size / 2}
-                        cx={size / 2}
-                        cy={size / 2}
+                        r={this.normalizedRadius}
+                        // r={size / 2}
+                        cx={size/2}
+                        cy={size/2}
                     />
                     {/* <text className="overall-percent" x={pos.score[0]} y={pos.score[1]} style={{ fontSize }}>
                         {progress}
@@ -65,7 +66,7 @@ class ProgressRing extends React.Component {
 
 
 
-                    <text  className="overall-percent" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" style={{ fontSize: 25 }}>
+                    <text  className="overall-percent" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" style={{ fontSize: this.props.textSize }}>
                         {progress}%
                         
                     </text>
@@ -82,12 +83,12 @@ class ProgressRing extends React.Component {
                         stroke="url(#gradient)"
                         fill="transparent"
                         strokeWidth={5}
-                        strokeDasharray={this.circumference + ' ' + this.circumference}
+                        strokeDasharray={this.circumference}
                         style={{ strokeDashoffset }}
-                        // r={this.normalizedRadius}
-                        r={size/2}
-                        cx={size / 2}
-                        cy={size / 2}
+                        r={this.normalizedRadius}
+                        // r={size/2}
+                        cx={size/2}
+                        cy={size/2}
                     />
                 </svg>
                 {/* <svg id="progress-ring-shadow-svg" width="200" height="200" >

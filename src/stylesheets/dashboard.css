@@ -30,6 +30,7 @@
     /* width: var(--width); */
     /* width: 85%; */
     align-items: center;
+    width: 75%;
     /* margin-left: var(--sidenav-width); */
     /* color: #ffffff; */
     /* background-color: rgb(245, 246, 249); */
@@ -103,6 +104,18 @@
 
 .padding-10 {
     padding: 10px;
+}
+
+.margin-left-17 {
+    margin-left: 17px;
+}
+
+.margin-top-13 {
+    margin-top: 13px;
+}
+
+.margin-bottom-13 {
+    margin-bottom: 13px;
 }
 
 .bg-dark-blue {
@@ -186,6 +199,53 @@
 
 .invisible {
     display: none;
+}
+
+.flex-direction-row {
+    flex-direction: row;
+}
+
+.flex-direction-column {
+    flex-direction: column;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.padding-top-bottom-16 {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+
+.width-300 {
+    width: 300px;
+}
+
+.top-left-right-rounded {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.bottom-left-right-rounded {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.linear-gradient {
+    background: linear-gradient(90deg, #2B73B7, #682FB1);
+}
+
+.margin-left-right-5 {
+    margin-left: 8px;
+    margin-right: 4px;
 }
 
 .ml-role-container {
