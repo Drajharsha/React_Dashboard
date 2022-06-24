@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useLayoutEffect, useCallback } from "react";
 import Sidenav from "../sidenav/sidenav";
+import SideNav from "../sidenav_new/Sidenav";
 // import teal_logo from '../../images/logos/logo_teal';
 import teal_logo from '../../images/logos/logo_teal.png';
 import gradient from '../../icons/gradient.svg';
@@ -318,11 +319,13 @@ const Dashboard = (props) => {
 
     return (
         <div id='dashboard-frame'>
-            <Sidenav />
+                {/* <Sidenav /> */}
 
-            {/* header part */}
-            {/* this has to be removed from here */}
-            {/* <div id="dashboard-header">
+                <SideNav/>
+
+                {/*
+
+                <div id="dashboard-header">
                     <div className="logo-name-container">
                         <a href="/" className="home-link"><img src={teal_logo} alt="loxz digital" className="header-logo" /></a>
                         <img src={gradient} alt="" className="gradient" />
@@ -339,10 +342,9 @@ const Dashboard = (props) => {
                         </div>
                     </div>
 
-                    comment 280
+                     comment 280 
                      <img src={survey} alt="" className="go-to-survey-icon" title='go to survey' onClick={() => this.redirectTo('/')}/> 
-                </div> */}
-
+    </div>*/ }
             {/* header part ends here. */}
 
 
