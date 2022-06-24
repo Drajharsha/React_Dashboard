@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Sidenav from './sidenav';
+import SideNav from './../sidenav_new/Sidenav';
 import { login, logout, loggingIn } from '../../actions/session_actions'
 import { activeComponent, openSidenav } from '../../actions/component_actions';
 import { 
@@ -47,4 +48,4 @@ const mDTP = dispatch => {
     };
 };
 
-export default connect(mSTP, mDTP)(Sidenav);
+export default connect(mSTP, mDTP)(SideNav);
