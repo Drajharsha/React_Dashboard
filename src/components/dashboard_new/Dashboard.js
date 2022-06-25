@@ -109,7 +109,7 @@ const Dashboard = (props) => {
 
     const renderOverviewPanel = () => {
         return (
-            <div className="overview-panel-container grid" key="overview" style={{ width: '95%', marginTop: 24, justifyContent: 'space-evenly' }}>
+            <div className="overview-panel-container grid" key="overview" style={{ width: '95%', height: '100%', marginTop: 24, justifyContent: 'space-evenly' }}>
                 {/* <div className="dividers">
                     <div className="divider" />
                     <div className="divider" />
@@ -126,8 +126,8 @@ const Dashboard = (props) => {
                                     return
                                 }
 
-                                return <Col lg={4} style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 12 }} key={item.key}>
-                                    <div className="margin-left-right-5">
+                                return <Col lg={4} style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 12, height: 230 }} key={item.key}>
+                                    <div className="margin-left-right-5 bg-dark-blue-2 bottom-left-right-rounded" style={{height: '100%'}}>
                                         <div className="top-left-right-rounded linear-gradient padding-10">
                                             <div className="flex flex-direction-row">
                                                 <img src={item.icon} style={{ width: 13, height: 13 }} />
@@ -137,10 +137,10 @@ const Dashboard = (props) => {
                                             </div>
                                         </div>
 
-                                        <div className="flex flex-direction-column center bg-dark-blue-2 padding-top-bottom-16 bottom-left-right-rounded" style={{height: 'auto'}}>
+                                        <div className="flex flex-direction-column center padding-top-bottom-16" style={{height: 'auto'}}>
                                             {/* redux -> state.entities.user.score[0].business value */}
                                             <ProgressRing textSize={14} size={60} props={{ progress: state.entities.user.score[0][item.type] }} />
-                                            <div style={{width: '100%', alignSelf: 'center', paddingLeft: 30, paddingRight: 30}}>
+                                            <div className="margin-top-13" style={{width: '100%', alignSelf: 'center', paddingLeft: 30, paddingRight: 30}}>
                                                 <text style={{fontWeight: '300', color: '#BACEE0', textSize: 12, fontSize: 12}}>
                                                     {UTIL.setSubDefinitions(item.type)}
                                                 </text>
@@ -318,7 +318,7 @@ const Dashboard = (props) => {
     }, [state.entities.surveys.score, state.entities.user.score])
 
     return (
-        <div id='dashboard-frame'>
+        <div id='dashboard-frame' className="bg-dark-blue-2">
                 {/* <Sidenav /> */}
 
                 <SideNav/>
@@ -353,9 +353,9 @@ const Dashboard = (props) => {
                     state.entities.activeComponent.component === DASHBOARD && [
                         <OverallMLRScore survey_version={survey_version} score={score} />,
                         // <ScoreListComponent user={state.entities.user} />,
-                        renderOverviewPanel(),
-                        <div className="divider"></div>,
-                        renderInsightPanel()
+                        renderOverviewPanel()
+                        // <div className="divider"></div>,
+                        // renderInsightPanel()
                     ]
                 }
                 {
