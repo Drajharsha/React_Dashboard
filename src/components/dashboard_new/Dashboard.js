@@ -32,6 +32,7 @@ import CareerTrajectory from '../../icons/Career Trajectory.svg';
 import DataPreparation from '../../icons/Data-Preparation.svg';
 import MLAptitude from '../../icons/ML Aptitude.svg';
 import Modeling from '../../icons/Modeling.svg';
+import UpArrow from '../../icons/Arrow-Up.svg';
 // import ProgressRing from "../progress_ring/progress_ring";
 
 
@@ -126,27 +127,42 @@ const Dashboard = (props) => {
                                     return
                                 }
 
-                                return <Col lg={4} style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 12, height: 230 }} key={item.key}>
-                                    <div className="margin-left-right-5 bg-dark-blue-2 bottom-left-right-rounded" style={{height: '100%'}}>
+                                return <Col lg={4} style={{ paddingLeft: 0, paddingRight: 0, height: 250, marginTop: 15 }} key={item.key}>
+                                    <div className="margin-left-right-5 bg-dark-blue-2 bottom-left-right-rounded flex flex-direction-column" style={{ height: '100%' }}>
                                         <div className="top-left-right-rounded linear-gradient padding-10">
-                                            <div className="flex flex-direction-row">
+                                            <div className="flex flex-direction-row" style={{ alignItems: 'center' }}>
                                                 <img src={item.icon} style={{ width: 13, height: 13 }} />
-                                                <label style={{ fontSize: 12, fontWeight: 'lighter', color: '#FFFFFF', marginLeft: 8 }}>
+                                                <label style={{ fontSize: 16, fontWeight: 'lighter', color: '#FFFFFF', marginLeft: 8 }}>
                                                     {item.type}
                                                 </label>
                                             </div>
                                         </div>
 
-                                        <div className="flex flex-direction-column center padding-top-bottom-16" style={{height: 'auto'}}>
+                                        <div className="flex flex-direction-column center padding-top-16" style={{ height: '100%', justifyContent: 'space-between' }}>
                                             {/* redux -> state.entities.user.score[0].business value */}
-                                            <ProgressRing textSize={14} size={60} props={{ progress: state.entities.user.score[0][item.type] }} />
-                                            <div className="margin-top-13" style={{width: '100%', alignSelf: 'center', paddingLeft: 30, paddingRight: 30}}>
-                                                <text style={{fontWeight: '300', color: '#BACEE0', textSize: 12, fontSize: 12}}>
-                                                    {UTIL.setSubDefinitions(item.type)}
-                                                </text>
+                                            <div>
+                                                <ProgressRing textSize={14} size={60} props={{ progress: state.entities.user.score[0][item.type] }} />
+                                                <div className="margin-top-13" style={{ width: '100%', alignSelf: 'center', paddingLeft: 30, paddingRight: 30 }}>
+                                                    <text style={{ fontWeight: '300', color: '#BACEE0', textSize: 12, fontSize: 12 }}>
+                                                        {UTIL.setSubDefinitions(item.type)}
+                                                    </text>
+                                                </div>
+
+                                            </div>
+                                            <div style={{ display: 'flex', flexDirection: 'row', backgroundColor: '#122434'}}>
+                                                <div className="outer-corner-insight-right" style={{width: 10, height: 'auto'}}></div>
+                                                <div className="bg-dark-blue-2">
+                                                <div className="top-left-right-rounded-8" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingLeft: 8, paddingRight: 8, paddingTop: 5, backgroundColor: '#122434' }}>
+                                                    <img style={{ width: 16, height: 7 }} src={UpArrow} />
+                                                    <text style={{ fontSize: 10, color: '#BACEE0' }}>Insights</text>
+                                                </div>
+                                                </div>
+                                                
+                                                <div className="outer-corner-insight-left" style={{width: 10, height: 'auto'}}></div>
                                             </div>
                                         </div>
                                     </div>
+
 
                                 </Col>
                             })
@@ -319,11 +335,11 @@ const Dashboard = (props) => {
 
     return (
         <div id='dashboard-frame' className="bg-dark-blue-2">
-                {/* <Sidenav /> */}
+            {/* <Sidenav /> */}
 
-                <SideNav/>
+            <SideNav />
 
-                {/*
+            {/*
 
                 <div id="dashboard-header">
                     <div className="logo-name-container">
