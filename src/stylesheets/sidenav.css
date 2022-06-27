@@ -1,5 +1,5 @@
 .sidenav-frame {
-    width: 25%;
+    width: 20%;
     max-width: 300px;
     /* border-right: grey solid 1px; */
     z-index: 2;
@@ -7,7 +7,6 @@
     display: flex;
     align-items: center;
     /* margin-top: 100px; */
-    overflow-y: auto;
 }
 
 .sidenav-container {
