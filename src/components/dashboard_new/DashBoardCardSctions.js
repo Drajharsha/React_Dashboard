@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Col } from 'react-bootstrap';
 import UpArrow from '../../icons/Arrow-Up.svg';
-import Close from '../../icons/close.svg';
+import Close from '../../icons/close_circle.svg';
 import ProgressRing from '../progress_ring/progress_ring_container';
 import * as UTIL from '../../util/components/dashboard_component_util';
 
