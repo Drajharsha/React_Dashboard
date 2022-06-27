@@ -26,13 +26,13 @@ import { set } from "react-ga";
 import LoginPopup from "../login/login_popup";
 import { connect } from 'react-redux'
 import ScoreListComponent from "./ScoreListComponent";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import BusinessValue from '../../icons/Business Value.svg'
 import CareerTrajectory from '../../icons/Career Trajectory.svg';
 import DataPreparation from '../../icons/Data-Preparation.svg';
 import MLAptitude from '../../icons/ML Aptitude.svg';
 import Modeling from '../../icons/Modeling.svg';
-import UpArrow from '../../icons/Arrow-Up.svg';
+import DashBoardCardSections from "./DashBoardCardSctions";
 // import ProgressRing from "../progress_ring/progress_ring";
 
 
@@ -48,8 +48,8 @@ const Dashboard = (props) => {
     const [insight, setInsight] = useState(false);
     const [currentScore, setCurrentScore] = useState()
     const [staticKeys, setStaticKeys] = useState({
-        "ML_READINESS": [{ type: "Overall", key: 1, icon: BusinessValue }, { type: "Data Preparation", key: 2, icon: DataPreparation }, { type: "Model Development", key: 3, icon: Modeling }, { type: "Model Monitoring", key: 4, icon: Modeling }, { type: "Business Value", key: 5, icon: BusinessValue }],
-        "STUDENT_SURVEY": [{ type: "Overall", key: 1, icon: BusinessValue }, { type: "Data Preparation", key: 2, icon: DataPreparation }, { type: "Modeling", key: 3, icon: Modeling }, { type: "Career Trajectory", key: 4, icon: CareerTrajectory }, { type: "ML Aptitude", key: 5, icon: MLAptitude }, { type: "Business Value", key: 6, icon: BusinessValue }]
+        "ML_READINESS": [{ type: "Overall", key: 1, icon: BusinessValue }, { type: "Data Preparation", key: 2, icon: DataPreparation, startColor: '#2B73B7', endColor:  '#682FB1'}, { type: "Model Development", key: 3, icon: Modeling, startColor: '#9E34AF', endColor:  '#B53141' }, { type: "Model Monitoring", key: 4, icon: Modeling, startColor: '#9E34AF', endColor:  '#B53141' }, { type: "Business Value", key: 5, icon: BusinessValue, startColor: '#8F39A5', endColor:  '#3475A5' }],
+        "STUDENT_SURVEY": [{ type: "Overall", key: 1, icon: BusinessValue }, { type: "Data Preparation", key: 2, icon: DataPreparation, startColor: '#2B73B7', endColor:  '#682FB1' }, { type: "Modeling", key: 3, icon: Modeling, startColor: '#9E34AF', endColor:  '#B53141' }, { type: "Career Trajectory", key: 4, icon: CareerTrajectory,  startColor: '#BC592D', endColor:  '#B28C29'}, { type: "ML Aptitude", key: 5, icon: MLAptitude, startColor: '#62A936', endColor:  '#35A98D' }, { type: "Business Value", key: 6, icon: BusinessValue, startColor: '#8F39A5', endColor:  '#3475A5' }]
     })
     const [lastScrollTop, setLastScrollTop] = useState(0);
     const [responsiveObj, setResponsiveObj] = useState(false);
@@ -127,44 +127,7 @@ const Dashboard = (props) => {
                                     return
                                 }
 
-                                return <Col lg={4} style={{ paddingLeft: 0, paddingRight: 0, height: 250, marginTop: 15 }} key={item.key}>
-                                    <div className="margin-left-right-5 bg-dark-blue-2 bottom-left-right-rounded flex flex-direction-column" style={{ height: '100%' }}>
-                                        <div className="top-left-right-rounded linear-gradient padding-10">
-                                            <div className="flex flex-direction-row" style={{ alignItems: 'center' }}>
-                                                <img src={item.icon} style={{ width: 13, height: 13 }} />
-                                                <label style={{ fontSize: 16, fontWeight: 'lighter', color: '#FFFFFF', marginLeft: 8 }}>
-                                                    {item.type}
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div className="flex flex-direction-column center padding-top-16" style={{ height: '100%', justifyContent: 'space-between' }}>
-                                            {/* redux -> state.entities.user.score[0].business value */}
-                                            <div>
-                                                <ProgressRing textSize={14} size={60} props={{ progress: state.entities.user.score[0][item.type] }} />
-                                                <div className="margin-top-13" style={{ width: '100%', alignSelf: 'center', paddingLeft: 30, paddingRight: 30 }}>
-                                                    <text style={{ fontWeight: '300', color: '#BACEE0', textSize: 12, fontSize: 12 }}>
-                                                        {UTIL.setSubDefinitions(item.type)}
-                                                    </text>
-                                                </div>
-
-                                            </div>
-                                            <div style={{ display: 'flex', flexDirection: 'row', backgroundColor: '#122434'}}>
-                                                <div className="outer-corner-insight-right" style={{width: 10, height: 'auto'}}></div>
-                                                <div className="bg-dark-blue-2">
-                                                <div className="top-left-right-rounded-8" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingLeft: 8, paddingRight: 8, paddingTop: 5, backgroundColor: '#122434' }}>
-                                                    <img style={{ width: 16, height: 7 }} src={UpArrow} />
-                                                    <text style={{ fontSize: 10, color: '#BACEE0' }}>Insights</text>
-                                                </div>
-                                                </div>
-                                                
-                                                <div className="outer-corner-insight-left" style={{width: 10, height: 'auto'}}></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </Col>
+                                return <DashBoardCardSections item={item} state={state}/>
                             })
                         }
                     </Row>
