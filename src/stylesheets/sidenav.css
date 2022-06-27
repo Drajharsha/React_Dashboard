@@ -566,6 +566,7 @@
      */
 
      background: #122434;
+     color: #33FFF9;
 }
 
 .navigation ul li b:nth-child(1){
@@ -623,10 +624,11 @@
     display: flex;
     text-decoration: none;
     color: white;
+    pointer-events: none;
 }
 
 .navigation ul li.active a{
-    color: black;
+    color: #33FFF9;
 
 }
 
@@ -646,7 +648,11 @@
     height: 50px;
     line-height: 50px;
     white-space: normal;
-    font-size: 16px;
+    font-size: 15px;
+}
+
+.navigation ul li a .title.active {
+color: #25B8BF;
 }
 
 ::-webkit-scrollbar {
