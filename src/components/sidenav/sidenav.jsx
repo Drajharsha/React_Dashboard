@@ -198,7 +198,7 @@ class SideNav extends React.Component {
                                         <b></b>
                                         <b></b>
                                         <a>
-                                            <img src={dashboard_new} alt="" className="sidenav-logo" />
+                                            <img src={dashboard_new} alt="" className="sidenav-logo"/>
                                             <span class="title">Dashboard</span>
                                         </a>
                                     </li>
