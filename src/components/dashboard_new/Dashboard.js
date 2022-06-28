@@ -15,7 +15,7 @@ import { calcProgressRingRadius } from '../util/responsive_util';
 import ProgressRing from '../progress_ring/progress_ring_container';
 import { useSelector, useDispatch } from 'react-redux'
 import { activeComponent } from '../../actions/component_actions';
-import { userScore } from '../../actions/user_actions';
+import { userScore, userScores } from '../../actions/user_actions';
 import { authenticate } from '../../actions/session_actions';
 import { activateComparativeAnalysis, closeComparativeAnalysis, activateSentimentAnalysis, closeSentimentAnalysis, activateReccomendations, closeReccomendations } from '../../actions/dashboard_actions';
 // import * as APIUtil from '../util/api/user_api_util';
@@ -40,8 +40,6 @@ const Dashboard = (props) => {
 
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-
-    console.log(state);
 
     const [score, setScore] = useState();
     const [survey_version, setSurveyVersion] = useState();
@@ -76,6 +74,7 @@ const Dashboard = (props) => {
     }
 
     const findScoreChanges = () => {
+        
         const prps = { archivalScore: state.entities.user.score, currentScore: state.entities.surveys.score }
         let results = UTIL.getScoresFunctionalComponent(prps);
 
@@ -122,7 +121,6 @@ const Dashboard = (props) => {
                     <Row>
                         {
                             staticKeys[survey_version].map((item) => {
-                                console.log(item)
                                 if (item.type === "Overall") {
                                     return
                                 }

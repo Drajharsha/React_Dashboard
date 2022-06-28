@@ -192,7 +192,6 @@ export const getScores = THIS => {
 
 export const getScoresFunctionalComponent = props => {
 
-    console.log(props);
     
     let score;
     let insight;

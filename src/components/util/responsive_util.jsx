@@ -38,7 +38,6 @@ export const calcScoreAndClassPOS = (radius, fontSize, classification, score) =>
 }
 
 export const calcProgressRingRadius = (obj) => {
-    console.log(obj)
     let { orientation, ratio, height, width } = determineOrientation(true);
     let radius = 0;
     let fontSize = 0;

@@ -21,7 +21,6 @@ const _nullComponent = {
 };
 
 const componentReducer = (state = _nullComponent, action) => {
-    console.log("component reducers")
     switch (action.type) {
         case ACTIVATE_NEW_COMPONENT:
             return Object.assign({}, state, {

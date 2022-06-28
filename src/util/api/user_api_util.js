@@ -23,6 +23,17 @@ export const findScore = user => {
     const route = `/api/survey/user/fetch-score`;
     const clienttoken = localStorage.token || "";
 
+    console.log(clienttoken)
+
+    console.log("SENDING REQ TO: " + PROXY_URL + route)
+    return axiosProxy.get(route, { params: { email: user.email, headers: { clienttoken }}});
+}
+
+export const findScores = user => {
+    const route = `/api/survey/user/fetch-scores`;
+    const clienttoken = localStorage.token || "";
+
+
     console.log("SENDING REQ TO: " + PROXY_URL + route)
     return axiosProxy.get(route, { params: { email: user.email, headers: { clienttoken }}});
 }

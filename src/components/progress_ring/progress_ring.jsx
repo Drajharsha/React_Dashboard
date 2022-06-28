@@ -19,7 +19,6 @@ class ProgressRing extends React.Component {
 
     render() {
         var { progress, classification } = this.props.props;
-        console.log(classification);
         const strokeDashoffset = this.circumference - progress / 100 * this.circumference;
         let { radius, fontSize, stroke, pos } = calcProgressRingRadius({ progress, classification, "bool": true });
         // this.normalizedRadius = radius - stroke * 2;
@@ -27,7 +26,6 @@ class ProgressRing extends React.Component {
         this.circumference = this.normalizedRadius * 2 * Math.PI;
         const size = this.props.size;
 
-        console.log(progress);
 
         return (
             <div className="progress-ring-container" onClick={() => this.goToMeaning()}>

@@ -12,9 +12,7 @@ import Modeling from '../../icons/Modeling.svg';
 
 const OverallMLRScore = (props) => {
 
-    console.log(props)
     const state = useSelector(state => state)
-    console.log(state);
     const [overallScore, setOverallScore] = useState(0);
     const [classification, setClassification] = useState('')
     const [surveyVersion, setSurveyVersion] = useState(props.survey_version);
@@ -26,7 +24,6 @@ const OverallMLRScore = (props) => {
 
     const calcOverallPercent = () => {
         let score = Math.ceil(state.entities.user.score[0]["Overall"]);
-        console.log(score);
         setOverallScore(score);
     }
 
@@ -40,15 +37,15 @@ const OverallMLRScore = (props) => {
     })
 
     return (<div className='bg-dark-blue-2 rounder-corner-12 padding-10 width-95' style={{ display: 'flex', flexDirection: 'row', }}>
-        <div className='margin-left-17 margin-top-13 margin-bottom-13'>
+        <div className='margin-left-24 margin-top-24 margin-bottom-24'>
             <ProgressRing textSize={25} size={80} props={{ progress: overallScore }} />
         </div>
 
         <div style={{alignSelf: 'center', marginLeft: 33}}>
-            <text style={{color: '#BACEE0', fontWeight: 700, fontSize: 20}}>Over all MLR score renders</text>
+            <text style={{color: '#BACEE0', fontWeight: 700, fontSize: 24}}>Overall MLR score</text>
             <div className="classification-container margin-top-7 flex-column">
-                    <text className="classification color-light-gray font-weight-500 font-size-17">{classification}</text>
-                    <text className="moniker color-light-gray font-size-12" style={{marginTop: 3, lineHeight: 1.2, fontWeight: 'lighter'}}>{UTIL.setMoniker(props.score)}</text>
+                    <text className="classification color-light-gray font-weight-500 font-size-18">{classification}</text>
+                    <text className="moniker color-light-gray font-size-14" style={{marginTop: 3, lineHeight: 1.2, fontWeight: 300}}>{UTIL.setMoniker(props.score)}</text>
                 </div>
         </div>
 
