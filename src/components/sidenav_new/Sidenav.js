@@ -33,17 +33,6 @@ import qr from '../../icons/qrcode.svg';
 import qr_green from '../../icons/qrcode_green.svg';
 import download from '../../icons/download_report.svg';
 import download_green from '../../icons/download_report_green.svg';
-import padlock from '../../icons/padlock.png';
-import dashboard_new from '../../icons/dashboard_new.png'
-import group_new from '../../icons/group_new.png'
-import heatmap_new from '../../icons/heatmap_new.png'
-import scatter_new from '../../icons/scatter_new.png'
-import compare_new from '../../icons/compare_new.png'
-import reports_new from '../../icons/reports_new.png'
-import share_new from '../../icons/share_new.png'
-import qr_code_new from '../../icons/qr_code_new.png'
-import download_report_new from '../../icons/download_report_new.png'
-import feedback_new from '../../icons/feedback_new.png'
 import profile_pic from '../../icons/profile_pic.png'
 import main_logo from '../../icons/main_logo.png'
 
