@@ -11,27 +11,28 @@ import close from '../../icons/close.png';
 // import LoginPopupContainer from '../login/login_popup_container';
 import { SURVEY, DASHBOARD, HEATMAP, LEADERBOARD, SCATTER, COMPARE, REPORTS, SHARE, QR_CODE, DOWNLOAD, FEEDBACK } from '../../actions/component_actions';
 // import * as SIDENAVUtil from './sidenav_util';
-import dashboard from '../../icons/loxz-dashboard.SVG';
-import heatmap from '../../icons/loxz-heatmap.SVG';
-import scatter from '../../icons/loxz-scatter.SVG';
-import compare from '../../icons/loxz-compare.SVG';
-import feedback from '../../icons/loxz-feedback.SVG';
-import leaderboard from '../../icons/loxz-leaderboard.SVG';
-import reports from '../../icons/loxz-reports.SVG';
-import share from '../../icons/loxz-share.SVG';
-import qr from '../../icons/loxz-qr-code.SVG';
-import download from '../../icons/loxz-download.SVG';
-import padlock from '../../icons/padlock.png';
-import dashboard_new from '../../icons/dashboard_new.png'
-import group_new from '../../icons/group_new.png'
-import heatmap_new from '../../icons/heatmap_new.png'
-import scatter_new from '../../icons/scatter_new.png'
-import compare_new from '../../icons/compare_new.png'
-import reports_new from '../../icons/reports_new.png'
-import share_new from '../../icons/share_new.png'
-import qr_code_new from '../../icons/qr_code_new.png'
-import download_report_new from '../../icons/download_report_new.png'
-import feedback_new from '../../icons/feedback_new.png'
+import dashboard from '../../icons/dashboard.svg';
+import dashboard_green from '../../icons/dashboard_green.svg'
+import survey from '../../icons/survey.svg'
+import survey_green from '../../icons/survey_green.svg'
+import heatmap from '../../icons/heatmap.svg';
+import heatmap_green from '../../icons/heatmap_green.svg';
+import scatter from '../../icons/scatter.svg';
+import scatter_green from '../../icons/scatter_green.svg';
+import compare from '../../icons/compare.svg';
+import compare_green from '../../icons/compare_green.svg';
+import feedback from '../../icons/feedback.svg';
+import feedback_green from '../../icons/feedback_green.svg';
+import leaderboard from '../../icons/leaderboard.svg';
+import leaderboard_green from '../../icons/leaderboard_green.svg';
+import reports from '../../icons/reports_new.svg';
+import reports_green from '../../icons/reports_green_new.svg';
+import share from '../../icons/share.svg';
+import share_green from '../../icons/share_green.svg';
+import qr from '../../icons/qrcode.svg';
+import qr_green from '../../icons/qrcode_green.svg';
+import download from '../../icons/download_report.svg';
+import download_green from '../../icons/download_report_green.svg';
 import profile_pic from '../../icons/profile_pic.png'
 import main_logo from '../../icons/main_logo.png'
 
@@ -47,6 +48,7 @@ const Sidenav = (props) => {
 
     const state = useSelector(state => state);
     const dispatch = useDispatch();
+    const [navItem, setNavItem] = useState(DASHBOARD);
     
 
     useEffect(() => {
@@ -55,16 +57,7 @@ const Sidenav = (props) => {
 
 
     const navItemSelect = (navItem) => {
-        // var header = document.getElementById("cont");
-        // var btns = header.getElementsByClassName("containerblue");
-        // for (var i = 0; i < btns.length; i++) {
-        // btns[i].addEventListener("click", function() {
-        // var current = document.getElementsByClassName("active");
-        // current[0].className = current[0].className.replace(" active", "");
-        // this.className += " active";
-        // });
-        // }
-
+        setNavItem(navItem)
         let list = document.querySelectorAll('.list');
                         for (let i=0; i<list.length; i++){
                             list[i].onclick = function(){
@@ -134,7 +127,7 @@ const Sidenav = (props) => {
                                     <b></b>
                                     <b></b>
                                     <a>
-                                        <img src={dashboard_new} alt="" className="sidenav-logo" />
+                                        <img src={navItem===DASHBOARD ? dashboard_green : dashboard} alt="" className="sidenav-logo" />
                                         <span class="title">Dashboard</span>
                                     </a>
                                 </li>
@@ -142,7 +135,7 @@ const Sidenav = (props) => {
                                     <b></b>
                                     <b></b>
                                     <a>
-                                        <img src={group_new} alt="" className="sidenav-logo" />
+                                        <img src={navItem===SURVEY ? survey_green : survey} alt="" className="sidenav-logo" />
                                         <span class="title">Survey</span>
                                     </a>
                                 </li>
@@ -150,7 +143,7 @@ const Sidenav = (props) => {
                                     <b></b>
                                     <b></b>
                                     <a>
-                                        <img src={heatmap_new} alt="" className="sidenav-logo" />
+                                        <img src={navItem===HEATMAP ? heatmap_green : heatmap} alt="" className="sidenav-logo" />
                                         <span class="title">Heatmap</span>
                                     </a>
                                 </li>
@@ -158,7 +151,7 @@ const Sidenav = (props) => {
                                     <b></b>
                                     <b></b>
                                     <a>
-                                        <img src={scatter_new} alt="" className="sidenav-logo" />
+                                        <img src={navItem===SCATTER ? scatter_green : scatter} alt="" className="sidenav-logo" />
                                         <span class="title">Scatter</span>
                                     </a>
                                 </li>
@@ -166,7 +159,7 @@ const Sidenav = (props) => {
                                     <b></b>
                                     <b></b>
                                     <a>
-                                        <img src={compare_new} alt="" className="sidenav-logo" />
+                                        <img src={navItem===COMPARE ? compare_green : compare} alt="" className="sidenav-logo" />
                                         <span class="title">Compare</span>
                                     </a>
                                 </li>
@@ -175,7 +168,7 @@ const Sidenav = (props) => {
                                     <b></b>
                                     <b></b>
                                     <a>
-                                        <img src={compare_new} alt="" className="sidenav-logo" />
+                                        <img src={navItem===LEADERBOARD ? leaderboard_green : leaderboard} alt="" className="sidenav-logo" />
                                         <span class="title">Leaderboard</span>
                                     </a>
                                 </li>
@@ -183,7 +176,7 @@ const Sidenav = (props) => {
                                     <b></b>
                                     <b></b>
                                     <a>
-                                        <img src={reports_new} alt="" className="sidenav-logo" />
+                                        <img src={navItem===REPORTS ? reports_green : reports} alt="" className="sidenav-logo" />
                                         <span class="title">Reports</span>
                                     </a>
                                 </li>
@@ -191,7 +184,7 @@ const Sidenav = (props) => {
                                     <b></b>
                                     <b></b>
                                     <a>
-                                        <img src={share_new} alt="" className="sidenav-logo" />
+                                        <img src={navItem===SHARE ? share_green : share} alt="" className="sidenav-logo" />
                                         <span class="title">Share</span>
                                     </a>
                                 </li>
@@ -199,7 +192,7 @@ const Sidenav = (props) => {
                                     <b></b>
                                     <b></b>
                                     <a>
-                                        <img src={qr_code_new} alt="" className="sidenav-logo" />
+                                        <img src={navItem===QR_CODE ? qr_green : qr} alt="" className="sidenav-logo" />
                                         <span class="title">QR Code</span>
                                     </a>
                                 </li>
@@ -207,7 +200,7 @@ const Sidenav = (props) => {
                                     <b></b>
                                     <b></b>
                                     <a>
-                                        <img src={download_report_new} alt="" className="sidenav-logo" />
+                                        <img src={navItem===DOWNLOAD ? download_green : download} alt="" className="sidenav-logo" />
                                         <span class="title">Download Report</span>
                                     </a>
                                 </li>
@@ -215,7 +208,7 @@ const Sidenav = (props) => {
                                     <b></b>
                                     <b></b>
                                     <a>
-                                        <img src={feedback_new} alt="" className="sidenav-logo" />
+                                        <img src={navItem===FEEDBACK ? feedback_green : feedback} alt="" className="sidenav-logo" />
                                         <span class="title">Feedback</span>
                                     </a>
                                 </li>

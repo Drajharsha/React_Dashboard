@@ -14,7 +14,7 @@
 }
 
 #dashboard-frame {
-    background: #122434 ;
+    background: #0B1C2B ;
     /* width: 100vw; */
     width: 100%;
     display: flex;
@@ -37,7 +37,7 @@
     /* margin-left: var(--sidenav-width); */
     /* color: #ffffff; */
     /* background-color: rgb(245, 246, 249); */
-    background-color: #122434;
+    background-color: #0B1C2B;
     margin-top: 25px;
     padding-left: 10px;
 }
