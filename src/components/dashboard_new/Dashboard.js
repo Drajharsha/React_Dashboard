@@ -34,6 +34,7 @@ import MLAptitude from '../../icons/ML Aptitude.svg';
 import Modeling from '../../icons/Modeling.svg';
 import More from '../../icons/more.svg';
 import Dlogo from '../../icons/Dlogo.svg';
+import profile_pic from '../../icons/profile_pic.png'
 import DashBoardCardSections from "./DashBoardCardSctions";
 // import ProgressRing from "../progress_ring/progress_ring";
 
@@ -304,9 +305,10 @@ const Dashboard = (props) => {
     return (
         <div className="bg-dark-blue-3" style={{ width: '100%', height: "100vh" }}>
 
-            <div className="action-bar" style={{ width: '100%', height: 40, alignItems: 'center', paddingLeft: 25 }}>
-                <img src={Dlogo} style={{ width: 25, height: 25 }} />
-                <img src={More} style={{ width: 30, height: 50, marginLeft: 15 }} onClick={() => updateDrawerStatus(!isDrawerActive)} />
+            <div className="action-bar" style={{ width: '100%', height: 40, alignItems: 'center', paddingLeft: 25, paddingRight:10, paddingTop:10 }}>
+                <img src={More} style={{ width: 30, height: 50, }} onClick={() => updateDrawerStatus(!isDrawerActive)} />
+                <img src={Dlogo} style={{ width: 25, height: 25, marginLeft: 15 }} />
+                {!isDrawerActive?<img src={profile_pic} style={{ width: 30, height: 30, borderRadius:'50%', display:'flex', marginLeft:'auto' }}/>:null}
             </div>
             <div id='dashboard-frame' className="bg-dark-blue-2">
                 {/* <Sidenav /> */}
