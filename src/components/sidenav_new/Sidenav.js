@@ -35,6 +35,7 @@ import download from '../../icons/download_report.svg';
 import download_green from '../../icons/download_report_green.svg';
 import profile_pic from '../../icons/profile_pic.png'
 import main_logo from '../../icons/main_logo.png'
+import Left from '../../icons/left.svg';
 
 import { useSelector, useDispatch } from 'react-redux'
 import { activeComponent } from '../../actions/component_actions';
@@ -45,6 +46,8 @@ import { set } from "react-ga";
 import { activateComparativeAnalysis, closeComparativeAnalysis, activateSentimentAnalysis, closeSentimentAnalysis, activateReccomendations, closeReccomendations } from '../../actions/dashboard_actions';
 
 const Sidenav = (props) => {
+
+    console.log(props);
 
     const state = useSelector(state => state);
     const dispatch = useDispatch();
@@ -68,6 +71,10 @@ const Sidenav = (props) => {
                                 list[i].className = 'list active';
                             }
                         }
+    }
+
+    const closeDrawer = () => {
+        props.updateDrawerStatus(!props.isOpened)
     }
 
     const navigateTo = (destination) => {
@@ -94,7 +101,7 @@ const Sidenav = (props) => {
     return (
         <>
             {/* {this.props.isAuthenticating ? <LoginPopupContainer /> : null} */}
-            <div className="sidenav-frame">
+            <div className={`sidenav-frame ${props.isOpened? 'open-side-nav': 'close-sidenav'}`}>
                 {/* <img src={close} alt="X" className="close-sidenav" onClick={this.closeSidenav} /> */}
                 <div className="sidenav-container bg-dark-blue-2">
                     {/* <div className="sidenav-user-profile-container">
@@ -109,6 +116,7 @@ const Sidenav = (props) => {
                         
                             <ul className="bg-dark-blue-2">
                             <div className='mainlogo'>
+                                <img src={Left} style={{width: 25, height: 25}} onClick={closeDrawer}/>
                                 <img src={main_logo} />
                             </div>
                             {/* className='divusername'  */}

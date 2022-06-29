@@ -32,6 +32,7 @@ import CareerTrajectory from '../../icons/Career Trajectory.svg';
 import DataPreparation from '../../icons/Data-Preparation.svg';
 import MLAptitude from '../../icons/ML Aptitude.svg';
 import Modeling from '../../icons/Modeling.svg';
+import More from '../../icons/more.svg';
 import DashBoardCardSections from "./DashBoardCardSctions";
 // import ProgressRing from "../progress_ring/progress_ring";
 
@@ -44,10 +45,11 @@ const Dashboard = (props) => {
     const [score, setScore] = useState();
     const [survey_version, setSurveyVersion] = useState();
     const [insight, setInsight] = useState(false);
+    const [isDrawerActive, setDrawerStatus] = useState(false);
     const [currentScore, setCurrentScore] = useState()
     const [staticKeys, setStaticKeys] = useState({
-        "ML_READINESS": [{ type: "Overall", key: 1, icon: BusinessValue }, { type: "Data Preparation", key: 2, icon: DataPreparation, startColor: '#2B73B7', endColor:  '#682FB1'}, { type: "Model Development", key: 3, icon: Modeling, startColor: '#9E34AF', endColor:  '#B53141' }, { type: "Model Monitoring", key: 4, icon: Modeling, startColor: '#9E34AF', endColor:  '#B53141' }, { type: "Business Value", key: 5, icon: BusinessValue, startColor: '#8F39A5', endColor:  '#3475A5' }],
-        "STUDENT_SURVEY": [{ type: "Overall", key: 1, icon: BusinessValue }, { type: "Data Preparation", key: 2, icon: DataPreparation, startColor: '#2B73B7', endColor:  '#682FB1' }, { type: "Modeling", key: 3, icon: Modeling, startColor: '#9E34AF', endColor:  '#B53141' }, { type: "Career Trajectory", key: 4, icon: CareerTrajectory,  startColor: '#BC592D', endColor:  '#B28C29'}, { type: "ML Aptitude", key: 5, icon: MLAptitude, startColor: '#62A936', endColor:  '#35A98D' }, { type: "Business Value", key: 6, icon: BusinessValue, startColor: '#8F39A5', endColor:  '#3475A5' }]
+        "ML_READINESS": [{ type: "Overall", key: 1, icon: BusinessValue }, { type: "Data Preparation", key: 2, icon: DataPreparation, startColor: '#2B73B7', endColor: '#682FB1' }, { type: "Model Development", key: 3, icon: Modeling, startColor: '#9E34AF', endColor: '#B53141' }, { type: "Model Monitoring", key: 4, icon: Modeling, startColor: '#9E34AF', endColor: '#B53141' }, { type: "Business Value", key: 5, icon: BusinessValue, startColor: '#8F39A5', endColor: '#3475A5' }],
+        "STUDENT_SURVEY": [{ type: "Overall", key: 1, icon: BusinessValue }, { type: "Data Preparation", key: 2, icon: DataPreparation, startColor: '#2B73B7', endColor: '#682FB1' }, { type: "Modeling", key: 3, icon: Modeling, startColor: '#9E34AF', endColor: '#B53141' }, { type: "Career Trajectory", key: 4, icon: CareerTrajectory, startColor: '#BC592D', endColor: '#B28C29' }, { type: "ML Aptitude", key: 5, icon: MLAptitude, startColor: '#62A936', endColor: '#35A98D' }, { type: "Business Value", key: 6, icon: BusinessValue, startColor: '#8F39A5', endColor: '#3475A5' }]
     })
     const [lastScrollTop, setLastScrollTop] = useState(0);
     const [responsiveObj, setResponsiveObj] = useState(false);
@@ -74,7 +76,7 @@ const Dashboard = (props) => {
     }
 
     const findScoreChanges = () => {
-        
+
         const prps = { archivalScore: state.entities.user.score, currentScore: state.entities.surveys.score }
         let results = UTIL.getScoresFunctionalComponent(prps);
 
@@ -106,6 +108,10 @@ const Dashboard = (props) => {
         UTIL.toggleInsights(e)
     }
 
+    const updateDrawerStatus = (newStatus) => {
+        setDrawerStatus(newStatus);
+    }
+
 
     const renderOverviewPanel = () => {
         return (
@@ -125,7 +131,7 @@ const Dashboard = (props) => {
                                     return
                                 }
 
-                                return <DashBoardCardSections item={item} state={state}/>
+                                return <DashBoardCardSections item={item} state={state} />
                             })
                         }
                     </Row>
@@ -295,12 +301,17 @@ const Dashboard = (props) => {
     }, [state.entities.surveys.score, state.entities.user.score])
 
     return (
-        <div id='dashboard-frame' className="bg-dark-blue-2">
-            {/* <Sidenav /> */}
+        <div className="bg-dark-blue-3" style={{width: '100%', height: "100vh"}}>
 
-            <SideNav />
+            <div className="action-bar" style={{width: '100%', height: 40, alignItems: 'self-start', paddingLeft: 25}}>
+                <img src={More} style={{width: 30, height: 50}} onClick={() => updateDrawerStatus(!isDrawerActive)} />
+            </div>
+            <div id='dashboard-frame' className="bg-dark-blue-2">
+                {/* <Sidenav /> */}
 
-            {/*
+                <SideNav isOpened={isDrawerActive} updateDrawerStatus={updateDrawerStatus}/>
+
+                {/*
 
                 <div id="dashboard-header">
                     <div className="logo-name-container">
@@ -322,29 +333,30 @@ const Dashboard = (props) => {
                      comment 280 
                      <img src={survey} alt="" className="go-to-survey-icon" title='go to survey' onClick={() => this.redirectTo('/')}/> 
     </div>*/ }
-            {/* header part ends here. */}
+                {/* header part ends here. */}
 
 
-            <div className="dashboard-container">
-                {
-                    state.entities.activeComponent.component === DASHBOARD && [
-                        <OverallMLRScore survey_version={survey_version} score={score} />,
-                        // <ScoreListComponent user={state.entities.user} />,
-                        renderOverviewPanel()
-                        // <div className="divider"></div>,
-                        // renderInsightPanel()
-                    ]
-                }
-                {
-                    state.entities.activeComponent === HEATMAP &&
-                    <Heatmap />
-                }
-                {
-                    state.entities.activeComponent === DOWNLOAD &&
-                    <Download user={props.user} score={props.currentScore} />
-                }
+                <div className={`dashboard-container ${isDrawerActive? 'push_dashboard': ''}`}>
+                    {
+                        state.entities.activeComponent.component === DASHBOARD && [
+                            <OverallMLRScore survey_version={survey_version} score={score} />,
+                            // <ScoreListComponent user={state.entities.user} />,
+                            renderOverviewPanel()
+                            // <div className="divider"></div>,
+                            // renderInsightPanel()
+                        ]
+                    }
+                    {
+                        state.entities.activeComponent === HEATMAP &&
+                        <Heatmap />
+                    }
+                    {
+                        state.entities.activeComponent === DOWNLOAD &&
+                        <Download user={props.user} score={props.currentScore} />
+                    }
+                </div>
+                {/* <div className="dashboard-footer"></div> */}
             </div>
-            {/* <div className="dashboard-footer"></div> */}
         </div>
     )
 }

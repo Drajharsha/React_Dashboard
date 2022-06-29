@@ -20,7 +20,7 @@ const DashBoardCardSections = ({ item, state }) => {
     return (
         <Col lg={4} style={{ paddingLeft: 2, paddingRight: 2, height: 260, marginTop: 15, marginBottom: 25 }} key={item.key}>
 
-            <div className="margin-left-right-5 bg-dark-blue-2 bottom-left-right-rounded flex flex-direction-column" style={{ height: '100%' }}>
+            <div className="margin-left-right-5 bg-dark-blue-2 top-left-right-rounded bottom-left-right-rounded flex flex-direction-column" style={{ height: '100%' }}>
                 <div className="top-left-right-rounded padding-left-20 padding-bottom-20 padding-top-20" style={{background: 'linear-gradient(90deg, ' +item.startColor +', ' + item.endColor + ')'}}>
                     <div className="flex flex-direction-row" style={{ alignItems: 'center' }}>
                         <img src={item.icon} style={{ width: 22, height: 22 }} />
