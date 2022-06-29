@@ -33,6 +33,7 @@ import DataPreparation from '../../icons/Data-Preparation.svg';
 import MLAptitude from '../../icons/ML Aptitude.svg';
 import Modeling from '../../icons/Modeling.svg';
 import More from '../../icons/more.svg';
+import Dlogo from '../../icons/Dlogo.svg';
 import DashBoardCardSections from "./DashBoardCardSctions";
 // import ProgressRing from "../progress_ring/progress_ring";
 
@@ -301,15 +302,16 @@ const Dashboard = (props) => {
     }, [state.entities.surveys.score, state.entities.user.score])
 
     return (
-        <div className="bg-dark-blue-3" style={{width: '100%', height: "100vh"}}>
+        <div className="bg-dark-blue-3" style={{ width: '100%', height: "100vh" }}>
 
-            <div className="action-bar" style={{width: '100%', height: 40, alignItems: 'self-start', paddingLeft: 25}}>
-                <img src={More} style={{width: 30, height: 50}} onClick={() => updateDrawerStatus(!isDrawerActive)} />
+            <div className="action-bar" style={{ width: '100%', height: 40, alignItems: 'center', paddingLeft: 25 }}>
+                <img src={Dlogo} style={{ width: 25, height: 25 }} />
+                <img src={More} style={{ width: 30, height: 50, marginLeft: 15 }} onClick={() => updateDrawerStatus(!isDrawerActive)} />
             </div>
             <div id='dashboard-frame' className="bg-dark-blue-2">
                 {/* <Sidenav /> */}
 
-                <SideNav isOpened={isDrawerActive} updateDrawerStatus={updateDrawerStatus}/>
+                <SideNav isOpened={isDrawerActive} updateDrawerStatus={updateDrawerStatus} />
 
                 {/*
 
@@ -336,7 +338,7 @@ const Dashboard = (props) => {
                 {/* header part ends here. */}
 
 
-                <div className={`dashboard-container ${isDrawerActive? 'push_dashboard': ''}`}>
+                <div className={`dashboard-container ${isDrawerActive ? 'push_dashboard' : ''}`}>
                     {
                         state.entities.activeComponent.component === DASHBOARD && [
                             <OverallMLRScore survey_version={survey_version} score={score} />,

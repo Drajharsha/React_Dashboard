@@ -507,6 +507,14 @@
       position:sticky;
   }
 
+  .enable-mobile-logo {
+    display: none;
+  }
+
+  .disable-logo {
+    display: flex;
+}
+
 @media(max-width: 520px) {
     .sidenav-frame {
         width: 60%;
@@ -525,6 +533,14 @@
 
     .open-side-nav {
         transform: translateX(0%);
+    }
+
+    .enable-mobile-logo {
+        display: flex;
+    }
+
+    .disable-logo {
+        display: none !important;
     }
 }
 
@@ -546,6 +562,21 @@
 
     .open-side-nav {
         transform: translateX(0%);
+    }
+
+    .disable-logo {
+        display: none;
+    }
+
+    .enable-mobile-logo {
+        display: flex;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .enable-mobile-logo {
+        display: none;
     }
 }
 
@@ -719,7 +750,7 @@ color: #25B8BF;
 
 .mainlogo{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .welcome {

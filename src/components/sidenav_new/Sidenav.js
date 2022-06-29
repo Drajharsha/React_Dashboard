@@ -32,6 +32,7 @@ import share_green from '../../icons/share_green.svg';
 import qr from '../../icons/qrcode.svg';
 import qr_green from '../../icons/qrcode_green.svg';
 import download from '../../icons/download_report.svg';
+import Dlogo from '../../icons/Dlogo.svg';
 import download_green from '../../icons/download_report_green.svg';
 import profile_pic from '../../icons/profile_pic.png'
 import main_logo from '../../icons/main_logo.png'
@@ -41,7 +42,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { activeComponent } from '../../actions/component_actions';
 import { userScore } from '../../actions/user_actions';
 import { authenticate } from '../../actions/session_actions';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { set } from "react-ga";
 import { activateComparativeAnalysis, closeComparativeAnalysis, activateSentimentAnalysis, closeSentimentAnalysis, activateReccomendations, closeReccomendations } from '../../actions/dashboard_actions';
 
@@ -52,25 +53,25 @@ const Sidenav = (props) => {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
     const [navItem, setNavItem] = useState(DASHBOARD);
-    
+
 
     useEffect(() => {
-        
+
     }, [])
 
 
     const navItemSelect = (navItem) => {
         setNavItem(navItem)
         let list = document.querySelectorAll('.list');
-                        for (let i=0; i<list.length; i++){
-                            list[i].onclick = function(){
-                                let j = 0;
-                                while(j < list.length){
-                                    list[j++].className = 'list';
-                                }
-                                list[i].className = 'list active';
-                            }
-                        }
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function () {
+                let j = 0;
+                while (j < list.length) {
+                    list[j++].className = 'list';
+                }
+                list[i].className = 'list active';
+            }
+        }
     }
 
     const closeDrawer = () => {
@@ -79,11 +80,11 @@ const Sidenav = (props) => {
 
     const navigateTo = (destination) => {
         switch (destination) {
-            case SURVEY: 
+            case SURVEY:
                 destination = "";
                 props.activateSurvey();
                 break
-            case DASHBOARD: 
+            case DASHBOARD:
                 destination = "dashboard";
                 props.activateDashboard();
                 break
@@ -101,7 +102,7 @@ const Sidenav = (props) => {
     return (
         <>
             {/* {this.props.isAuthenticating ? <LoginPopupContainer /> : null} */}
-            <div className={`sidenav-frame ${props.isOpened? 'open-side-nav': 'close-sidenav'}`}>
+            <div className={`sidenav-frame ${props.isOpened ? 'open-side-nav' : 'close-sidenav'}`}>
                 {/* <img src={close} alt="X" className="close-sidenav" onClick={this.closeSidenav} /> */}
                 <div className="sidenav-container bg-dark-blue-2">
                     {/* <div className="sidenav-user-profile-container">
@@ -110,138 +111,151 @@ const Sidenav = (props) => {
                     </div> */}
                     {/* <div className="sidenav-links-new"> */}
 
-                    
 
-                        <div class="navigation">
-                        
-                            <ul className="bg-dark-blue-2">
+
+                    <div class="navigation">
+
+                        <ul className="bg-dark-blue-2">
                             <div className='mainlogo'>
-                                <img src={Left} style={{width: 25, height: 25}} onClick={closeDrawer}/>
-                                <img src={main_logo} />
+                                <div className="enable-mobile-logo" style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}> 
+                                    <img src={Left} style={{ width: 25, height: 25 }} onClick={closeDrawer} />
+                                    <div  style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', marginLeft: 20}}>
+                                        <div className='profilelogo'>
+                                            <img src={profile_pic} />
+                                        </div>
+
+                                        <div className='divusername'>
+                                            <div className='welcome'>Welcome</div>
+                                            <div className='username'>Tony Danza</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <img className="disable-logo" src={main_logo} />
                             </div>
                             {/* className='divusername'  */}
-                            <div style={{display: 'flex', flexDirection: 'row', alignItems:'center', marginTop:'30px',marginLeft:'20px'}}>
-                                    <div className='profilelogo'>
-                                        <img src={profile_pic} />
-                                    </div>
-                                    
-                                    <div className='divusername'>
-                                        <div className='welcome'>Welcome</div>
-                                        <div className='username'>Tony Danza</div>
-                                    </div>
+                            <div className="disable-logo" style={{  flexDirection: 'row', alignItems: 'center', marginTop: '30px', marginLeft: '20px' }}>
+                                <div className='profilelogo'>
+                                    <img src={profile_pic} />
+                                </div>
+
+                                <div className='divusername'>
+                                    <div className='welcome'>Welcome</div>
+                                    <div className='username'>Tony Danza</div>
+                                </div>
                             </div>
                             <div className="sidenav-header">MRL Overview</div>
-                                <li class="list active" onClick={() => navItemSelect(DASHBOARD)}>
-                                    <b></b>
-                                    <b></b>
-                                    <a>
-                                        <img src={navItem===DASHBOARD ? dashboard_green : dashboard} alt="" className="sidenav-logo" />
-                                        <span class="title">Dashboard</span>
-                                    </a>
-                                </li>
-                                <li class="list" onClick={() => navItemSelect(SURVEY)}>
-                                    <b></b>
-                                    <b></b>
-                                    <a>
-                                        <img src={navItem===SURVEY ? survey_green : survey} alt="" className="sidenav-logo" />
-                                        <span class="title">Survey</span>
-                                    </a>
-                                </li>
-                                <li class="list" onClick={() => navItemSelect(HEATMAP)}>
-                                    <b></b>
-                                    <b></b>
-                                    <a>
-                                        <img src={navItem===HEATMAP ? heatmap_green : heatmap} alt="" className="sidenav-logo" />
-                                        <span class="title">Heatmap</span>
-                                    </a>
-                                </li>
-                                <li class="list" onClick={() => navItemSelect(SCATTER)}>
-                                    <b></b>
-                                    <b></b>
-                                    <a>
-                                        <img src={navItem===SCATTER ? scatter_green : scatter} alt="" className="sidenav-logo" />
-                                        <span class="title">Scatter</span>
-                                    </a>
-                                </li>
-                                <li class="list" onClick={() => navItemSelect(COMPARE)}>
-                                    <b></b>
-                                    <b></b>
-                                    <a>
-                                        <img src={navItem===COMPARE ? compare_green : compare} alt="" className="sidenav-logo" />
-                                        <span class="title">Compare</span>
-                                    </a>
-                                </li>
-                                <div className="sidenav-header-res">Resources</div>
-                                <li class="list" onClick={() => navItemSelect(LEADERBOARD)}>
-                                    <b></b>
-                                    <b></b>
-                                    <a>
-                                        <img src={navItem===LEADERBOARD ? leaderboard_green : leaderboard} alt="" className="sidenav-logo" />
-                                        <span class="title">Leaderboard</span>
-                                    </a>
-                                </li>
-                                <li class="list" onClick={() => navItemSelect(REPORTS)}>
-                                    <b></b>
-                                    <b></b>
-                                    <a>
-                                        <img src={navItem===REPORTS ? reports_green : reports} alt="" className="sidenav-logo" />
-                                        <span class="title">Reports</span>
-                                    </a>
-                                </li>
-                                <li class="list" onClick={() => navItemSelect(SHARE)}>
-                                    <b></b>
-                                    <b></b>
-                                    <a>
-                                        <img src={navItem===SHARE ? share_green : share} alt="" className="sidenav-logo" />
-                                        <span class="title">Share</span>
-                                    </a>
-                                </li>
-                                <li class="list" onClick={() => navItemSelect(QR_CODE)}>
-                                    <b></b>
-                                    <b></b>
-                                    <a>
-                                        <img src={navItem===QR_CODE ? qr_green : qr} alt="" className="sidenav-logo" />
-                                        <span class="title">QR Code</span>
-                                    </a>
-                                </li>
-                                <li class="list" onClick={() => navItemSelect(DOWNLOAD)}>
-                                    <b></b>
-                                    <b></b>
-                                    <a>
-                                        <img src={navItem===DOWNLOAD ? download_green : download} alt="" className="sidenav-logo" />
-                                        <span class="title">Download Report</span>
-                                    </a>
-                                </li>
-                                <li class="list" onClick={() => navItemSelect(FEEDBACK)}>
-                                    <b></b>
-                                    <b></b>
-                                    <a>
-                                        <img src={navItem===FEEDBACK ? feedback_green : feedback} alt="" className="sidenav-logo" />
-                                        <span class="title">Feedback</span>
-                                    </a>
-                                </li>
+                            <li class="list active" onClick={() => navItemSelect(DASHBOARD)}>
+                                <b></b>
+                                <b></b>
+                                <a>
+                                    <img src={navItem === DASHBOARD ? dashboard_green : dashboard} alt="" className="sidenav-logo" />
+                                    <span class="title">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="list" onClick={() => navItemSelect(SURVEY)}>
+                                <b></b>
+                                <b></b>
+                                <a>
+                                    <img src={navItem === SURVEY ? survey_green : survey} alt="" className="sidenav-logo" />
+                                    <span class="title">Survey</span>
+                                </a>
+                            </li>
+                            <li class="list" onClick={() => navItemSelect(HEATMAP)}>
+                                <b></b>
+                                <b></b>
+                                <a>
+                                    <img src={navItem === HEATMAP ? heatmap_green : heatmap} alt="" className="sidenav-logo" />
+                                    <span class="title">Heatmap</span>
+                                </a>
+                            </li>
+                            <li class="list" onClick={() => navItemSelect(SCATTER)}>
+                                <b></b>
+                                <b></b>
+                                <a>
+                                    <img src={navItem === SCATTER ? scatter_green : scatter} alt="" className="sidenav-logo" />
+                                    <span class="title">Scatter</span>
+                                </a>
+                            </li>
+                            <li class="list" onClick={() => navItemSelect(COMPARE)}>
+                                <b></b>
+                                <b></b>
+                                <a>
+                                    <img src={navItem === COMPARE ? compare_green : compare} alt="" className="sidenav-logo" />
+                                    <span class="title">Compare</span>
+                                </a>
+                            </li>
+                            <div className="sidenav-header-res">Resources</div>
+                            <li class="list" onClick={() => navItemSelect(LEADERBOARD)}>
+                                <b></b>
+                                <b></b>
+                                <a>
+                                    <img src={navItem === LEADERBOARD ? leaderboard_green : leaderboard} alt="" className="sidenav-logo" />
+                                    <span class="title">Leaderboard</span>
+                                </a>
+                            </li>
+                            <li class="list" onClick={() => navItemSelect(REPORTS)}>
+                                <b></b>
+                                <b></b>
+                                <a>
+                                    <img src={navItem === REPORTS ? reports_green : reports} alt="" className="sidenav-logo" />
+                                    <span class="title">Reports</span>
+                                </a>
+                            </li>
+                            <li class="list" onClick={() => navItemSelect(SHARE)}>
+                                <b></b>
+                                <b></b>
+                                <a>
+                                    <img src={navItem === SHARE ? share_green : share} alt="" className="sidenav-logo" />
+                                    <span class="title">Share</span>
+                                </a>
+                            </li>
+                            <li class="list" onClick={() => navItemSelect(QR_CODE)}>
+                                <b></b>
+                                <b></b>
+                                <a>
+                                    <img src={navItem === QR_CODE ? qr_green : qr} alt="" className="sidenav-logo" />
+                                    <span class="title">QR Code</span>
+                                </a>
+                            </li>
+                            <li class="list" onClick={() => navItemSelect(DOWNLOAD)}>
+                                <b></b>
+                                <b></b>
+                                <a>
+                                    <img src={navItem === DOWNLOAD ? download_green : download} alt="" className="sidenav-logo" />
+                                    <span class="title">Download Report</span>
+                                </a>
+                            </li>
+                            <li class="list" onClick={() => navItemSelect(FEEDBACK)}>
+                                <b></b>
+                                <b></b>
+                                <a>
+                                    <img src={navItem === FEEDBACK ? feedback_green : feedback} alt="" className="sidenav-logo" />
+                                    <span class="title">Feedback</span>
+                                </a>
+                            </li>
 
-                                    <div 
-                                        className="pre-footer-link-container"
-                                        data-component={FEEDBACK}    
-                                    >
-                                        <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
-                                            loxz.com
-                                        </div>
-                                        <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
-                                            Resources
-                                        </div>
-                                        <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
-                                            Privacy Policy
-                                        </div>
-                                    </div>
+                            <div
+                                className="pre-footer-link-container"
+                                data-component={FEEDBACK}
+                            >
+                                <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
+                                    loxz.com
+                                </div>
+                                <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
+                                    Resources
+                                </div>
+                                <div className="prefooter-link" onClick={() => this.activate(FEEDBACK)}>
+                                    Privacy Policy
+                                </div>
+                            </div>
 
-                                    <div className='sidenav-footer-container'>
-                                        <span className="sidenav-footer-link-span">© 2022, Loxz Digital Group, Inc</span>
-                                    </div>
-                            </ul>
-                            
-                        </div>
+                            <div className='sidenav-footer-container'>
+                                <span className="sidenav-footer-link-span">© 2022, Loxz Digital Group, Inc</span>
+                            </div>
+                        </ul>
+
+                    </div>
                 </div>
             </div>
         </>
