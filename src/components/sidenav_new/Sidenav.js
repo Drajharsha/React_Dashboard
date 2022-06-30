@@ -37,6 +37,7 @@ import download_green from '../../icons/download_report_green.svg';
 import profile_pic from '../../icons/profile_pic.png'
 import main_logo from '../../icons/main_logo.png'
 import Left from '../../icons/left.svg';
+import UserProfile from '../user_profile/user_profile_container';
 
 import { useSelector, useDispatch } from 'react-redux'
 import { activeComponent } from '../../actions/component_actions';
@@ -53,6 +54,7 @@ const Sidenav = (props) => {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
     const [navItem, setNavItem] = useState(DASHBOARD);
+    const [showPopup, setShowPopup] = useState(false);
 
 
     useEffect(() => {
@@ -98,6 +100,15 @@ const Sidenav = (props) => {
         if (window.innerWidth <= 500) this.closeSidenav();
     }
 
+    const handleLogin = (boolean) => {
+        // if (!props.user) {
+        //     props.loggingInState(boolean)
+        // } else {
+        //     document.querySelector('.expanded-user-profile-container').classList.toggle('hidden');
+        // }
+        setShowPopup(boolean)
+    }
+
 
     return (
         <>
@@ -135,7 +146,7 @@ const Sidenav = (props) => {
                             </div>
                             {/* className='divusername'  */}
                             <div className="disable-logo" style={{  flexDirection: 'row', alignItems: 'center', marginTop: '30px', marginLeft: '20px' }}>
-                                <div className='profilelogo'>
+                                <div className='profilelogo' onClick={() => handleLogin(!showPopup)}>
                                     <img src={profile_pic} />
                                 </div>
 
@@ -143,6 +154,10 @@ const Sidenav = (props) => {
                                     <div className='welcome'>Welcome</div>
                                     <div className='username'>Tony Danza</div>
                                 </div>
+
+                                {showPopup?<div>
+                                    <UserProfile />
+                                </div>:null}
                             </div>
                             <div className="sidenav-header">MRL Overview</div>
                             <li class="list active" onClick={() => navItemSelect(DASHBOARD)}>
