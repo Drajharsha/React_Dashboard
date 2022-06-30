@@ -30,8 +30,8 @@ const ProgressRingNew = (props) => {
             >
                 <defs>
                     <linearGradient id={`gradient${props.itemKey}`} x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor={props.startColor} />
-                        <stop offset="100%" stopColor={props.endColor} />
+                        <stop offset="0%" stopColor={props.isTransform ? '#ffffff' : props.startColor} />
+                        <stop offset="100%" stopColor={props.isTransform ? '#ffffff' : props.endColor} />
                     </linearGradient>
                     <filter id="blur">
                         <feGaussianBlur in="SourceGraphic" stdDeviation="7" />
@@ -40,6 +40,7 @@ const ProgressRingNew = (props) => {
 
                 <circle className="progress-ring-background"
                     stroke="#122434"
+                    stroke-opacity={props.isTransform ? 0.3 : 1}
                     fill="transparent"
                     strokeWidth={5}
                     strokeDasharray={circumference}
@@ -75,6 +76,7 @@ const ProgressRingNew = (props) => {
                     stroke={`url(#gradient${props.itemKey})`}
                     fill="transparent"
                     strokeWidth={5}
+                    strokeLinecap='round'
                     strokeDasharray={circumference}
                     style={{ strokeDashoffset }}
                     r={normalizedRadius}
