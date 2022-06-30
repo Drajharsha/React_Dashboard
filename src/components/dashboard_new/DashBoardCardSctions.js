@@ -39,7 +39,7 @@ const DashBoardCardSections = ({ item, state }) => {
                         {/* redux -> state.entities.user.score[0].business value */}
                         <div style={{ height: '100%', justifyContent: 'space-between', display: 'flex', flexDirection: 'column', }}>
                             <div>
-                                <ProgressRingNew isTransform={applyTransform} textSize={18} size={66} props={{ progress: state.entities.user.score[0][item.type] }} />
+                                <ProgressRingNew startColor={item.startColor} endColor={item.endColor} isTransform={applyTransform} textSize={18} size={66} props={{ progress: state.entities.user.score[0][item.type] }} />
                                 <div className="margin-top-13" style={{ width: '100%', alignSelf: 'center', paddingLeft: 30, paddingRight: 30 }}>
                                     <text style={{ fontWeight: '300', color: '#BACEE0', fontSize: 14 }}>
                                         {UTIL.setSubDefinitions(item.type)}

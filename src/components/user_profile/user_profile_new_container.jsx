@@ -21,4 +21,4 @@ const mDTP = dispatch => {
     };
 };
 
-export default connect(mSTP, mDTP)(UserProfile);
+export default connect(mSTP, mDTP)(UserProfileNew);

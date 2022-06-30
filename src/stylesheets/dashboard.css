@@ -605,6 +605,10 @@
 .dashboard-user-profile-char {
     margin: auto;
     height: 75%;
+    line-height: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .dashboard-user-profile:hover {
@@ -638,10 +642,7 @@
     width: 90%;
 }
 
-.animate-progress-bar {
-    transform: translate(38%, -80px) scale(0.65);
-    transition: transform 250ms ease-in-out;
-}
+
 
 @media(min-width: 1000px) {
     /* .sidenav-container {
@@ -743,6 +744,7 @@
     margin-left: -50%;
 }
 
+
 @media (max-width: 520px) {
     .action-bar {
         display: flex;
@@ -755,6 +757,8 @@
     .dashboard-container {
         width: 100%;
     }
+
+    
 }
 
 
@@ -769,5 +773,32 @@
 
     .dashboard-container {
         width: 100%;
+    }
+
+}
+
+.animate-progress-bar {
+    transform: translate(38%, -80px) scale(0.65);
+    transition: transform 250ms ease-in-out;
+}
+
+@media (min-width: 521px) and (max-width: 620px) {
+    .animate-progress-bar {
+        transform: translate(38%, -80px) scale(0.65);
+        transition: transform 250ms ease-in-out;
+    }
+}
+
+@media (min-width: 621px) and (max-width: 700px) {
+    .animate-progress-bar {
+        transform: translate(43%, -80px) scale(0.65);
+        transition: transform 250ms ease-in-out;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 760px) {
+    .animate-progress-bar {
+        transform: translate(48%, -80px) scale(0.65);
+        transition: transform 250ms ease-in-out;
     }
 }

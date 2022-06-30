@@ -4,7 +4,7 @@ import SideNav from "../sidenav_new/Sidenav";
 // import teal_logo from '../../images/logos/logo_teal';
 import teal_logo from '../../images/logos/logo_teal.png';
 import gradient from '../../icons/gradient.svg';
-import UserProfile from '../user_profile/user_profile_container';
+import UserProfileNew from '../user_profile/user_profile_new_container';
 // import { DASHBOARD, HEATMAP, DOWNLOAD } from '../../actions/component_actions';
 import { DASHBOARD, HEATMAP, DOWNLOAD } from '../../actions/component_actions';
 // import Heatmap from './subcomponents/heatmap';

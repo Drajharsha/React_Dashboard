@@ -3,6 +3,8 @@ import { determineOrientation, gatherAspectRatio, calcProgressRingRadius } from 
 
 const ProgressRingNew = (props) => {
 
+    console.log(props);
+
     let { radius, fontSize, stroke, pos } = calcProgressRingRadius({ progress, classification, "bool": true });
     // this.normalizedRadius = radius - stroke * 2;
     const normalizedRadius = (props.size) - stroke * 2;
@@ -68,6 +70,8 @@ const ProgressRingNew = (props) => {
                 </div> */}
 
                 {/* {classification && <text className="ml-role-container" textDecoration="underline" dominant-baseline="middle" text-anchor="middle" x="50%" y="65%" style={{ fontSize: fontSize * .25 }} >{classification}</text>} */}
+                
+                {/* change the gradient color here */}
                 <circle
                     className="progress-ring"
                     stroke="url(#gradient)"

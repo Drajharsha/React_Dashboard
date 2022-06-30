@@ -37,7 +37,7 @@ import download_green from '../../icons/download_report_green.svg';
 import profile_pic from '../../icons/profile_pic.png'
 import main_logo from '../../icons/main_logo.png'
 import Left from '../../icons/left.svg';
-import UserProfile from '../user_profile/user_profile_container';
+import UserProfile from '../user_profile/user_profile_new_container';
 
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -109,6 +109,7 @@ const Sidenav = (props) => {
         // } else {
         //     document.querySelector('.expanded-user-profile-container').classList.toggle('hidden');
         // }
+        console.log("handle login clicked");
         setShowPopup(!showPopup)
     }
 
@@ -131,21 +132,24 @@ const Sidenav = (props) => {
 
                         <ul className="bg-dark-blue-2">
                             <div className='mainlogo'>
+                                {/* Mobile side drawer section */}
                                 <div className="enable-mobile-logo" style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                                     <img src={Left} style={{ width: 25, height: 25 }} onClick={closeDrawer} />
                                     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', marginLeft: 20 }}>
-                                        <div className='profilelogo'>
-                                            <label style={{ fontWeight: 100, fontSize: '1.7rem', color: '#25B8BF', lineHeight: 0 }}>
+                                        <div className='profilelogo' style={{ cursor: 'pointer' }} onClick={handleLogin}>
+                                            <label style={{ cursor: 'pointer', fontWeight: 100, fontSize: '1.7rem', color: '#25B8BF', lineHeight: 0 }}>
                                                 {user.name.slice(0, 1)}
                                             </label>
                                         </div>
 
-                                        <div className='divusername'>
+                                        <div className='divusername' onClick={handleLogin}>
                                             <div className='welcome'>Welcome</div>
                                             <div className='username'>{user.name}</div>
                                         </div>
 
-                                        
+                                        {showPopup ? <div>
+                                            <UserProfile />
+                                        </div> : null}
                                     </div>
 
 
