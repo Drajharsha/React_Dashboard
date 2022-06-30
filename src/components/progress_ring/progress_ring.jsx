@@ -2,6 +2,14 @@ import React from "react";
 import { determineOrientation, gatherAspectRatio, calcProgressRingRadius } from '../util/responsive_util';
 
 class ProgressRing extends React.Component {
+    
+    constructor(props) {
+        super(props)
+        console.log(props);
+        this.state = {
+            isTransform: props.isTransform
+        }
+    }
     componentDidMount() {
         this.orientation = determineOrientation();
         this.aspectRatio = gatherAspectRatio();
@@ -28,7 +36,7 @@ class ProgressRing extends React.Component {
 
 
         return (
-            <div className="progress-ring-container" onClick={() => this.goToMeaning()}>
+            <div className={`${this.state.isTransform? 'animate-progress-bar': ''} progress-ring-container`} onClick={() => this.goToMeaning()}>
 
                 <svg
                     className="progress-ring-svg"

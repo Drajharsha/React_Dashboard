@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col } from 'react-bootstrap';
 import UpArrow from '../../icons/Arrow-Up.svg';
 import Close from '../../icons/close_circle.svg';
 import ProgressRing from '../progress_ring/progress_ring_container';
+import ProgressRingNew from '../progress_ring/ProgressRingNew';
 import * as UTIL from '../../util/components/dashboard_component_util';
 
 const DashBoardCardSections = ({ item, state }) => {
 
     const [isInsightVisible, setInsightVisibility] = useState(false);
+    const [applyTransform, setApplyTransform] = useState(false)
 
     const showInsightLayer = () => {
+        setApplyTransform(true)
         setInsightVisibility(true)
     }
 
     const hideInsightLayer = () => {
         setInsightVisibility(false)
+        setApplyTransform(false)
     }
 
     return (
@@ -35,7 +39,7 @@ const DashBoardCardSections = ({ item, state }) => {
                         {/* redux -> state.entities.user.score[0].business value */}
                         <div style={{ height: '100%', justifyContent: 'space-between', display: 'flex', flexDirection: 'column', }}>
                             <div>
-                                <ProgressRing textSize={18} size={66} props={{ progress: state.entities.user.score[0][item.type] }} />
+                                <ProgressRingNew isTransform={applyTransform} textSize={18} size={66} props={{ progress: state.entities.user.score[0][item.type] }} />
                                 <div className="margin-top-13" style={{ width: '100%', alignSelf: 'center', paddingLeft: 30, paddingRight: 30 }}>
                                     <text style={{ fontWeight: '300', color: '#BACEE0', fontSize: 14 }}>
                                         {UTIL.setSubDefinitions(item.type)}

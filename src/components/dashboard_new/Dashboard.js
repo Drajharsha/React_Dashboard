@@ -321,7 +321,7 @@ const Dashboard = (props) => {
 
                 <SideNav isOpened={isDrawerActive} updateDrawerStatus={updateDrawerStatus} />
 
-                {/*
+{/*
 
                 <div id="dashboard-header">
                     <div className="logo-name-container">
@@ -340,9 +340,9 @@ const Dashboard = (props) => {
                         </div>
                     </div>
 
-                     comment 280 
-                     <img src={survey} alt="" className="go-to-survey-icon" title='go to survey' onClick={() => this.redirectTo('/')}/> 
-    </div>*/ }
+                      comment 280 
+                     <img src={survey} alt="" className="go-to-survey-icon" title='go to survey' onClick={() => this.redirectTo('/')}/>  
+    </div> */}
                 {/* header part ends here. */}
 
 

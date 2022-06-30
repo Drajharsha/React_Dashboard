@@ -37,6 +37,8 @@ import download_green from '../../icons/download_report_green.svg';
 import profile_pic from '../../icons/profile_pic.png'
 import main_logo from '../../icons/main_logo.png'
 import Left from '../../icons/left.svg';
+import UserProfile from '../user_profile/user_profile_container';
+
 
 import { useSelector, useDispatch } from 'react-redux'
 import { activeComponent } from '../../actions/component_actions';
@@ -54,6 +56,7 @@ const Sidenav = (props) => {
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const [navItem, setNavItem] = useState(DASHBOARD);
+    const [showPopup, setShowPopup] = useState(false);
 
     console.log(user)
 
@@ -100,6 +103,15 @@ const Sidenav = (props) => {
         if (window.innerWidth <= 500) this.closeSidenav();
     }
 
+    const handleLogin = () => {
+        // if (!props.user) {
+        //     props.loggingInState(boolean)
+        // } else {
+        //     document.querySelector('.expanded-user-profile-container').classList.toggle('hidden');
+        // }
+        setShowPopup(!showPopup)
+    }
+
 
     return (
         <>
@@ -132,24 +144,32 @@ const Sidenav = (props) => {
                                             <div className='welcome'>Welcome</div>
                                             <div className='username'>{user.name}</div>
                                         </div>
+
+                                        
                                     </div>
+
+
                                 </div>
 
                                 <img className="disable-logo" src={main_logo} />
                             </div>
                             {/* className='divusername'  */}
                             <div className="disable-logo" style={{ flexDirection: 'row', alignItems: 'center', marginTop: '30px', marginLeft: '20px' }}>
-                                <div className='profilelogo'>
+                                <div className='profilelogo' onClick={handleLogin}>
                                     <label style={{ fontWeight: 100, fontSize: '1.7rem', color: '#25B8BF', lineHeight: 0 }}>
                                         {user.name.slice(0, 1)}
                                     </label>
 
                                 </div>
 
-                                <div className='divusername'>
+                                <div className='divusername' onClick={handleLogin}>
                                     <div className='welcome'>Welcome</div>
                                     <div className='username'>{user.name}</div>
                                 </div>
+
+                                {showPopup ? <div>
+                                    <UserProfile />
+                                </div> : null}
                             </div>
                             <div className="sidenav-header">MRL Overview</div>
                             <li class="list active" onClick={() => navItemSelect(DASHBOARD)}>
