@@ -738,13 +738,15 @@ color: #25B8BF;
 .profilelogo {
     height: 40px;
     width: 40px;
-    background: green;
-    border-radius: 40px;
+    border-radius: 20px;
     align-self: center;
     justify-content: center;
     align-items: center;
     align-content: center;
     display: flex;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #25B8BF;
     /* margin-top: 20px; */
 }
 

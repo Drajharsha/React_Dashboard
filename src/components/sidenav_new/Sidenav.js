@@ -51,9 +51,11 @@ const Sidenav = (props) => {
     console.log(props);
 
     const state = useSelector(state => state);
+    const user = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const [navItem, setNavItem] = useState(DASHBOARD);
 
+    console.log(user)
 
     useEffect(() => {
 
@@ -117,16 +119,18 @@ const Sidenav = (props) => {
 
                         <ul className="bg-dark-blue-2">
                             <div className='mainlogo'>
-                                <div className="enable-mobile-logo" style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}> 
+                                <div className="enable-mobile-logo" style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                                     <img src={Left} style={{ width: 25, height: 25 }} onClick={closeDrawer} />
-                                    <div  style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', marginLeft: 20}}>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', marginLeft: 20 }}>
                                         <div className='profilelogo'>
-                                            <img src={profile_pic} />
+                                            <label style={{ fontWeight: 100, fontSize: '1.7rem', color: '#25B8BF', lineHeight: 0 }}>
+                                                {user.name.slice(0, 1)}
+                                            </label>
                                         </div>
 
                                         <div className='divusername'>
                                             <div className='welcome'>Welcome</div>
-                                            <div className='username'>Tony Danza</div>
+                                            <div className='username'>{user.name}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -134,14 +138,17 @@ const Sidenav = (props) => {
                                 <img className="disable-logo" src={main_logo} />
                             </div>
                             {/* className='divusername'  */}
-                            <div className="disable-logo" style={{  flexDirection: 'row', alignItems: 'center', marginTop: '30px', marginLeft: '20px' }}>
+                            <div className="disable-logo" style={{ flexDirection: 'row', alignItems: 'center', marginTop: '30px', marginLeft: '20px' }}>
                                 <div className='profilelogo'>
-                                    <img src={profile_pic} />
+                                    <label style={{ fontWeight: 100, fontSize: '1.7rem', color: '#25B8BF', lineHeight: 0 }}>
+                                        {user.name.slice(0, 1)}
+                                    </label>
+
                                 </div>
 
                                 <div className='divusername'>
                                     <div className='welcome'>Welcome</div>
-                                    <div className='username'>Tony Danza</div>
+                                    <div className='username'>{user.name}</div>
                                 </div>
                             </div>
                             <div className="sidenav-header">MRL Overview</div>

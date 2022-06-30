@@ -44,6 +44,8 @@ const Dashboard = (props) => {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
 
+    console.log(state)
+
     const [score, setScore] = useState();
     const [survey_version, setSurveyVersion] = useState();
     const [insight, setInsight] = useState(false);
@@ -305,10 +307,14 @@ const Dashboard = (props) => {
     return (
         <div className="bg-dark-blue-3" style={{ width: '100%', height: "100vh" }}>
 
-            <div className="action-bar" style={{ width: '100%', height: 40, alignItems: 'center', paddingLeft: 25, paddingRight:10, paddingTop:10 }}>
+            <div className="action-bar" style={{ width: '100%', height: 40, alignItems: 'center', paddingLeft: 25, paddingRight:10, paddingTop:10, paddingRight: 25 }}>
                 <img src={More} style={{ width: 30, height: 50, }} onClick={() => updateDrawerStatus(!isDrawerActive)} />
                 <img src={Dlogo} style={{ width: 25, height: 25, marginLeft: 15 }} />
-                {!isDrawerActive?<img src={profile_pic} style={{ width: 30, height: 30, borderRadius:'50%', display:'flex', marginLeft:'auto' }}/>:null}
+                {!isDrawerActive && state.entities.user ?<div className="profilelogo-action-bar">
+                    <label style={{ fontWeight: 100, fontSize: '1rem', color: '#25B8BF', lineHeight: 0 }}>
+                                                {state.session.user.name.slice(0, 1)}
+                                            </label>
+                </div>:null}
             </div>
             <div id='dashboard-frame' className="bg-dark-blue-2">
                 {/* <Sidenav /> */}
