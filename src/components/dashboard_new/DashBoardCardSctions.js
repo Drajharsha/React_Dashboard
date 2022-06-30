@@ -7,7 +7,6 @@ import ProgressRingNew from '../progress_ring/ProgressRingNew';
 import * as UTIL from '../../util/components/dashboard_component_util';
 
 const DashBoardCardSections = ({ item, state }) => {
-
     const [isInsightVisible, setInsightVisibility] = useState(false);
     const [applyTransform, setApplyTransform] = useState(false)
 
@@ -39,7 +38,7 @@ const DashBoardCardSections = ({ item, state }) => {
                         {/* redux -> state.entities.user.score[0].business value */}
                         <div style={{ height: '100%', justifyContent: 'space-between', display: 'flex', flexDirection: 'column', }}>
                             <div>
-                                <ProgressRingNew startColor={item.startColor} endColor={item.endColor} isTransform={applyTransform} textSize={18} size={66} props={{ progress: state.entities.user.score[0][item.type] }} />
+                                <ProgressRingNew itemKey={item.key} startColor={item.startColor} endColor={item.endColor} isTransform={applyTransform} textSize={18} size={66} props={{ progress: state.entities.user.score[0][item.type] }} />
                                 <div className="margin-top-13" style={{ width: '100%', alignSelf: 'center', paddingLeft: 30, paddingRight: 30 }}>
                                     <text style={{ fontWeight: '300', color: '#BACEE0', fontSize: 14 }}>
                                         {UTIL.setSubDefinitions(item.type)}

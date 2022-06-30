@@ -3,8 +3,6 @@ import { determineOrientation, gatherAspectRatio, calcProgressRingRadius } from 
 
 const ProgressRingNew = (props) => {
 
-    console.log(props);
-
     let { radius, fontSize, stroke, pos } = calcProgressRingRadius({ progress, classification, "bool": true });
     // this.normalizedRadius = radius - stroke * 2;
     const normalizedRadius = (props.size) - stroke * 2;
@@ -31,9 +29,9 @@ const ProgressRingNew = (props) => {
                 style={{ overflow: 'inherit' }}
             >
                 <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#00bc9b" />
-                        <stop offset="100%" stopColor="#5eaefd" />
+                    <linearGradient id={`gradient${props.itemKey}`} x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor={props.startColor} />
+                        <stop offset="100%" stopColor={props.endColor} />
                     </linearGradient>
                     <filter id="blur">
                         <feGaussianBlur in="SourceGraphic" stdDeviation="7" />
@@ -74,7 +72,7 @@ const ProgressRingNew = (props) => {
                 {/* change the gradient color here */}
                 <circle
                     className="progress-ring"
-                    stroke="url(#gradient)"
+                    stroke={`url(#gradient${props.itemKey})`}
                     fill="transparent"
                     strokeWidth={5}
                     strokeDasharray={circumference}
