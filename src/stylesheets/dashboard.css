@@ -198,7 +198,7 @@
 }
 
 .bg-dark-blue-2 {
-    background-color: #162D41 !important;
+    background-color: #162D41;
 }
 
 .bg-dark-blue-3 {
@@ -224,8 +224,9 @@
 
 .form-select {
     width: fit-content !important;
-    color: #00bc9b !important;
+    color: #33FFF9 !important;
     border: 1px solid #162D41 !important;
+    background-color: #162D41 !important;
     
 }
 
