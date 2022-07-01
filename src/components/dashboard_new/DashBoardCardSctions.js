@@ -26,14 +26,14 @@ const DashBoardCardSections = ({ item, state }) => {
             <div className="margin-left-right-5 bg-dark-blue-2 top-left-right-rounded bottom-left-right-rounded flex flex-direction-column" style={{ height: '100%' }}>
                 <div className="top-left-right-rounded padding-right-20 padding-left-20 padding-bottom-20 padding-top-20" style={{ background: 'linear-gradient(90deg, ' + item.startColor + ', ' + item.endColor + ')' }}>
                     <div className="flex flex-direction-row" style={{ alignItems: 'center' }}>
-                        <img src={item.icon} style={{ width: 22, height: 22 }} />
-                        <label className='font-Nunito' style={{ fontSize: 18, fontWeight: 500, color: '#FFFFFF', marginLeft: 8 }}>
+                        <img src={item.icon} style={{ width: 24, height: 24 }} />
+                        <label className='font-Nunito' style={{ fontSize: 18, fontWeight: 500, color: '#FFFFFF', marginLeft: 8, width: 350 }}>
                             {item.type}
                         </label>
 
-                        <div className='header-progress-bar' style={{marginLeft: 'auto'}}>
+                        {/* <div className='header-progress-bar' style={{marginLeft: 'auto'}}>
                             <ProgressRingNew itemKey={item.key} startColor={item.startColor} endColor={item.endColor} isTransform={applyTransform} textSize={12} size={48} props={{ progress: state.entities.user.score[0][item.type] }} />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -42,11 +42,11 @@ const DashBoardCardSections = ({ item, state }) => {
                         {/* redux -> state.entities.user.score[0].business value */}
                         <div style={{ height: '100%', justifyContent: 'space-between', display: 'flex', flexDirection: 'column', }}>
                             <div>
-                                <div className="progress-div">
+                                <div className="progress-div animate-progress-bar-1">
                                     <ProgressRingNew itemKey={item.key} startColor={item.startColor} endColor={item.endColor} isTransform={applyTransform} textSize={18} size={66} props={{ progress: state.entities.user.score[0][item.type] }} />
                                 </div>
                                 <div className="margin-top-13" style={{ width: '100%', alignSelf: 'center', paddingLeft: 25, paddingRight: 25 }}>
-                                    <text className='font-Nunito' style={{ fontWeight: '300', color: '#BACEE0', fontSize: 14, lineHeight: 0 }}>
+                                    <text className='font-Nunito' style={{ fontWeight: '300', color: '#BACEE0', fontSize: 14, lineHeight: 0, height: 300 }}>
                                         {UTIL.setSubDefinitions(item.type)}
                                     </text>
                                 </div>

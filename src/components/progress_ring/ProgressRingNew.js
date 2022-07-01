@@ -3,6 +3,8 @@ import { determineOrientation, gatherAspectRatio, calcProgressRingRadius } from 
 
 const ProgressRingNew = (props) => {
 
+
+    console.log(props.isTransform)
     let { radius, fontSize, stroke, pos } = calcProgressRingRadius({ progress, classification, "bool": true });
     // this.normalizedRadius = radius - stroke * 2;
     const normalizedRadius = (props.size) - stroke * 2;
@@ -20,7 +22,7 @@ const ProgressRingNew = (props) => {
 
 
     return (
-        <div className={`${props.isTransform ? 'animate-progress-bar' : ''} progress-ring-container`} onClick={() => goToMeaning()}>
+        <div className={`${props.isTransform ? 'animate-progress-bar' : 'reanimate'} progress-ring-container`} onClick={() => goToMeaning()}>
 
             <svg
                 className="progress-ring-svg"

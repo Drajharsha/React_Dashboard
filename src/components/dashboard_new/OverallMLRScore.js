@@ -37,16 +37,21 @@ const OverallMLRScore = (props) => {
     })
 
     return (<div className='bg-dark-blue-2 rounder-corner-12 padding-10 width-95' style={{ display: 'flex', flexDirection: 'row', }}>
-        <div className='margin-left-24 margin-top-24 margin-bottom-24'>
+        <div className='flex margin-left-24 margin-bottom-24 flex-direction-column'>
+            
+            <select id="mobile" disabled class="disabled form-select form-select-sm" aria-label=".form-select-sm example">
+                <option selected>Analysis 1</option>
+            </select>
+            <div className='margin-top-24'>
             <ProgressRing textSize={25} size={80} props={{ progress: overallScore }} />
+            </div>
         </div>
 
         <div style={{ alignSelf: 'center', marginLeft: 33 }}>
-            <div className='flex flex-direcction-row' style={{justifyContent: 'space-between'}}>
+            <div className='flex flex-direcction-row' style={{ justifyContent: 'space-between' }}>
                 <text style={{ color: '#BACEE0', fontWeight: 700, fontSize: 24 }}>Overall MLR score</text>
-                <select disabled class="disabled form-select form-select-sm" aria-label=".form-select-sm example">
+                <select id="desktop" disabled class="disabled form-select form-select-sm" aria-label=".form-select-sm example">
                     <option selected>Analysis 1</option>
-                    
                 </select>
             </div>
 
