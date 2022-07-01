@@ -533,6 +533,7 @@
 
     .open-side-nav {
         transform: translateX(0%);
+        transition: transform 250ms ease-in-out;
     }
 
     .enable-mobile-logo {
@@ -562,6 +563,7 @@
 
     .open-side-nav {
         transform: translateX(0%);
+        transition: transform 250ms ease-in-out;
     }
 
     .disable-logo {

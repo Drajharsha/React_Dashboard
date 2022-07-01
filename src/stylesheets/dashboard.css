@@ -20,8 +20,25 @@
     border-style: solid;
     border-width: 2px;
     border-color: #25B8BF;
-    margin-left: auto;
     /* margin-top: 20px; */
+}
+
+.user-profile-pop-up-container {
+    border: grey solid 1px;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    position: absolute;
+    display: flex;
+    z-index: 2;
+    margin-right: 0px;
+    right: 4px;
+    top: 50px;
+    
+}
+
+.user-profile-container {
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 #dashboard-header .header-logo {
@@ -752,6 +769,7 @@
 
     .push_dashboard {
         transform: translateX(75%);
+        transition: transform 250ms ease-in-out;
     }
 
     .dashboard-container {
@@ -769,6 +787,7 @@
 
     .push_dashboard {
         transform: translateX(50%);
+        transition: transform 250ms ease-in-out;
     }
 
     .dashboard-container {

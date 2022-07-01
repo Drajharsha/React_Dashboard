@@ -36,6 +36,8 @@ import More from '../../icons/more.svg';
 import Dlogo from '../../icons/Dlogo.svg';
 import profile_pic from '../../icons/profile_pic.png'
 import DashBoardCardSections from "./DashBoardCardSctions";
+import UserProfile from "../user_profile/user_profile";
+import UserProfilePopUp from "../user_profile/UserProfilePopUp";
 // import ProgressRing from "../progress_ring/progress_ring";
 
 
@@ -43,8 +45,6 @@ const Dashboard = (props) => {
 
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-
-    console.log(state)
 
     const [score, setScore] = useState();
     const [survey_version, setSurveyVersion] = useState();
@@ -58,6 +58,7 @@ const Dashboard = (props) => {
     const [lastScrollTop, setLastScrollTop] = useState(0);
     const [responsiveObj, setResponsiveObj] = useState(false);
     const [timeSinceToggle, setTimeSinceToggle] = useState(0);
+    const [displayProfileInfo, setDisplayProfileInfo] = useState(false);
 
     const componentDidMount = async () => {
         // this.produceSampleDataSet()
@@ -110,6 +111,10 @@ const Dashboard = (props) => {
         setTimeSinceToggle(Date.now())
         // toggleInsights(e);
         UTIL.toggleInsights(e)
+    }
+
+    const showLogoutPopup = () => {
+        setDisplayProfileInfo(!displayProfileInfo);
     }
 
     const updateDrawerStatus = (newStatus) => {
@@ -307,21 +312,30 @@ const Dashboard = (props) => {
     return (
         <div className="bg-dark-blue-3" style={{ width: '100%', height: "100vh" }}>
 
-            <div className="action-bar" style={{ width: '100%', height: 40, alignItems: 'center', paddingLeft: 25, paddingRight:10, paddingTop:10, paddingRight: 25 }}>
+            <div className="action-bar" style={{ width: '100%', height: 40, alignItems: 'center', paddingLeft: 25, paddingRight: 10, paddingTop: 10, paddingRight: 25 }}>
                 <img src={More} style={{ width: 30, height: 50, }} onClick={() => updateDrawerStatus(!isDrawerActive)} />
                 <img src={Dlogo} style={{ width: 25, height: 25, marginLeft: 15 }} />
-                {!isDrawerActive && state.entities.user ?<div className="profilelogo-action-bar">
+                {!isDrawerActive && state.entities.user ? <div style={{ marginLeft: 'auto' }}><div className="profilelogo-action-bar" onClick={showLogoutPopup}>
                     <label style={{ fontWeight: 100, fontSize: '1rem', color: '#25B8BF', lineHeight: 0 }}>
-                                                {state.session.user.name.slice(0, 1)}
-                                            </label>
-                </div>:null}
+                        {state.session.user.name.slice(0, 1)}
+                    </label>
+                </div>
+
+                    {
+                        displayProfileInfo? 
+                        <div className="user-profile-pop-up-container">
+                        <UserProfilePopUp />
+                    </div> : null
+                    }
+                     
+                </div> : null}
             </div>
             <div id='dashboard-frame' className="bg-dark-blue-2">
                 {/* <Sidenav /> */}
 
                 <SideNav isOpened={isDrawerActive} updateDrawerStatus={updateDrawerStatus} />
 
-{/*
+                {/*
 
                 <div id="dashboard-header">
                     <div className="logo-name-container">
