@@ -44,7 +44,7 @@ const OverallMLRScore = (props) => {
         <div style={{ alignSelf: 'center', marginLeft: 33 }}>
             <div className='flex flex-direcction-row' style={{justifyContent: 'space-between'}}>
                 <text style={{ color: '#BACEE0', fontWeight: 700, fontSize: 24 }}>Overall MLR score</text>
-                <select disabled class="disabled bg-dark-blue-2 form-select form-select-sm" aria-label=".form-select-sm example">
+                <select disabled class="disabled form-select form-select-sm" aria-label=".form-select-sm example">
                     <option selected>Analysis 1</option>
                     
                 </select>
