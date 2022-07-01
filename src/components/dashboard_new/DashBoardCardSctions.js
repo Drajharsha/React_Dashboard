@@ -21,15 +21,19 @@ const DashBoardCardSections = ({ item, state }) => {
     }
 
     return (
-        <Col lg={4} md={6} style={{ paddingLeft: 2, paddingRight: 2, height: 300, marginTop: 15, marginBottom: 25 }} key={item.key}>
+        <Col className='card-height' lg={4} md={6} style={{ paddingLeft: 2, paddingRight: 2, marginTop: 15, marginBottom: 25 }} key={item.key}>
 
             <div className="margin-left-right-5 bg-dark-blue-2 top-left-right-rounded bottom-left-right-rounded flex flex-direction-column" style={{ height: '100%' }}>
-                <div className="top-left-right-rounded padding-left-20 padding-bottom-20 padding-top-20" style={{background: 'linear-gradient(90deg, ' +item.startColor +', ' + item.endColor + ')'}}>
+                <div className="top-left-right-rounded padding-right-20 padding-left-20 padding-bottom-20 padding-top-20" style={{ background: 'linear-gradient(90deg, ' + item.startColor + ', ' + item.endColor + ')' }}>
                     <div className="flex flex-direction-row" style={{ alignItems: 'center' }}>
                         <img src={item.icon} style={{ width: 22, height: 22 }} />
                         <label className='font-Nunito' style={{ fontSize: 18, fontWeight: 500, color: '#FFFFFF', marginLeft: 8 }}>
                             {item.type}
                         </label>
+
+                        <div className='header-progress-bar' style={{marginLeft: 'auto'}}>
+                            <ProgressRingNew itemKey={item.key} startColor={item.startColor} endColor={item.endColor} isTransform={applyTransform} textSize={12} size={48} props={{ progress: state.entities.user.score[0][item.type] }} />
+                        </div>
                     </div>
                 </div>
 
@@ -38,7 +42,9 @@ const DashBoardCardSections = ({ item, state }) => {
                         {/* redux -> state.entities.user.score[0].business value */}
                         <div style={{ height: '100%', justifyContent: 'space-between', display: 'flex', flexDirection: 'column', }}>
                             <div>
-                                <ProgressRingNew  itemKey={item.key} startColor={item.startColor} endColor={item.endColor} isTransform={applyTransform} textSize={18} size={66} props={{ progress: state.entities.user.score[0][item.type] }} />
+                                <div className="progress-div">
+                                    <ProgressRingNew itemKey={item.key} startColor={item.startColor} endColor={item.endColor} isTransform={applyTransform} textSize={18} size={66} props={{ progress: state.entities.user.score[0][item.type] }} />
+                                </div>
                                 <div className="margin-top-13" style={{ width: '100%', alignSelf: 'center', paddingLeft: 25, paddingRight: 25 }}>
                                     <text className='font-Nunito' style={{ fontWeight: '300', color: '#BACEE0', fontSize: 14, lineHeight: 0 }}>
                                         {UTIL.setSubDefinitions(item.type)}
@@ -62,22 +68,22 @@ const DashBoardCardSections = ({ item, state }) => {
                     </div>
 
                     {
-                        isInsightVisible &&  <div className="padding-10 bottom-left-right-rounded flex flex-direction-column" style={{ width: '100%', height: '100%', backgroundColor: '#151515FA', position: 'absolute' }}>
-                        <div className="flex flex-direction-row" style={{ justifyContent: 'space-between', width: '100%', alignItems: 'center', height: 'fit-content' }}>
-                            <label style={{ color: '#BACEE0', fontSize: 13, fontWeight: 600 }}>Insights</label>
-                            <img src={Close} style={{ width: 17, height: 17 }} onClick={hideInsightLayer}/>
+                        isInsightVisible && <div className="padding-10 bottom-left-right-rounded flex flex-direction-column" style={{ width: '100%', height: '100%', backgroundColor: '#151515FA', position: 'absolute' }}>
+                            <div className="flex flex-direction-row" style={{ justifyContent: 'space-between', width: '100%', alignItems: 'center', height: 'fit-content' }}>
+                                <label style={{ color: '#BACEE0', fontSize: 13, fontWeight: 600 }}>Insights</label>
+                                <img src={Close} style={{ width: 17, height: 17 }} onClick={hideInsightLayer} />
 
 
+                            </div>
+                            <label style={{ color: '#BACEE0', fontSize: 11, overflow: 'hidden', marginTop: 5, textOverflow: 'ellipsis' }}>
+                                {
+                                    state.entities.user.score[1][item.type]
+                                }
+                            </label>
                         </div>
-                        <label style={{ color: '#BACEE0', fontSize: 11, overflow: 'hidden', marginTop: 5, textOverflow: 'ellipsis' }}>
-                            {
-                                state.entities.user.score[1][item.type]
-                            }
-                        </label>
-                    </div> 
 
                     }
-                    
+
 
                 </div>
             </div>

@@ -121,6 +121,10 @@ const Dashboard = (props) => {
         setDrawerStatus(newStatus);
     }
 
+    // const renderSideNav = useCallback(() => {
+    //     return <SideNav isOpened={isDrawerActive} updateDrawerStatus={updateDrawerStatus} />
+    // }, [])
+
 
     const renderOverviewPanel = () => {
         return (
@@ -332,6 +336,10 @@ const Dashboard = (props) => {
             </div>
             <div id='dashboard-frame' className="bg-dark-blue-2">
                 {/* <Sidenav /> */}
+{/* 
+                {
+                    renderSideNav()
+                } */}
 
                 <SideNav isOpened={isDrawerActive} updateDrawerStatus={updateDrawerStatus} />
 

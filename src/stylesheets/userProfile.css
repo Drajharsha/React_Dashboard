@@ -43,6 +43,24 @@
     }
 }
 
+@media (min-height: 800px) {
+    #user-profile-container-new {
+        top: 13vh;
+    }
+}
+
+@media (min-height: 1000px) {
+    #user-profile-container-new {
+        top: 10vh;
+    }
+}
+
+@media (min-height: 1200px) {
+    #user-profile-container-new {
+        top: 8vh;
+    }
+}
+
 #user-profile {
     display: flex;
     align-items: space-between;

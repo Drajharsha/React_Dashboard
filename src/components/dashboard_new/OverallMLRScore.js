@@ -8,7 +8,7 @@ import DataPreparation from '../../icons/Data-Preparation.svg';
 import MLAptitude from '../../icons/ML Aptitude.svg';
 import Modeling from '../../icons/Modeling.svg';
 
- 
+
 
 const OverallMLRScore = (props) => {
 
@@ -18,8 +18,8 @@ const OverallMLRScore = (props) => {
     const [surveyVersion, setSurveyVersion] = useState(props.survey_version);
 
     const [staticKeys, setStaticKeys] = useState({
-        "ML_READINESS": [{type: "Overall", key: 1, icon: BusinessValue}, {type: "Data Preparation", key: 2, icon: DataPreparation}, {type: "Model Development", key: 3, icon: Modeling}, {type: "Model Monitoring", key: 4, icon: Modeling}, {type: "Business Value", key: 5, icon: BusinessValue}],
-        "STUDENT_SURVEY": [{type: "Overall", key: 1, icon: BusinessValue}, {type: "Data Preparation", key: 2, icon: DataPreparation}, {type: "Modeling", key: 3, icon: Modeling}, {type: "Career Trajectory", key: 4, icon: CareerTrajectory}, {type: "ML Aptitude", key: 5, icon: MLAptitude}, {type: "Business Value", key: 6, icon: BusinessValue}]
+        "ML_READINESS": [{ type: "Overall", key: 1, icon: BusinessValue }, { type: "Data Preparation", key: 2, icon: DataPreparation }, { type: "Model Development", key: 3, icon: Modeling }, { type: "Model Monitoring", key: 4, icon: Modeling }, { type: "Business Value", key: 5, icon: BusinessValue }],
+        "STUDENT_SURVEY": [{ type: "Overall", key: 1, icon: BusinessValue }, { type: "Data Preparation", key: 2, icon: DataPreparation }, { type: "Modeling", key: 3, icon: Modeling }, { type: "Career Trajectory", key: 4, icon: CareerTrajectory }, { type: "ML Aptitude", key: 5, icon: MLAptitude }, { type: "Business Value", key: 6, icon: BusinessValue }]
     })
 
     const calcOverallPercent = () => {
@@ -31,7 +31,7 @@ const OverallMLRScore = (props) => {
     useEffect(() => {
         calcOverallPercent()
 
-        const prps = {survey_version: props.survey_version, score: props.score }
+        const prps = { survey_version: props.survey_version, score: props.score }
         let classification = UTIL.setClassificationForFunctional(prps);
         setClassification(classification)
     })
@@ -41,15 +41,22 @@ const OverallMLRScore = (props) => {
             <ProgressRing textSize={25} size={80} props={{ progress: overallScore }} />
         </div>
 
-        <div style={{alignSelf: 'center', marginLeft: 33}}>
-            <text style={{color: '#BACEE0', fontWeight: 700, fontSize: 24}}>Overall MLR score</text>
+        <div style={{ alignSelf: 'center', marginLeft: 33 }}>
+            <div className='flex flex-direcction-row' style={{justifyContent: 'space-between'}}>
+                <text style={{ color: '#BACEE0', fontWeight: 700, fontSize: 24 }}>Overall MLR score</text>
+                <select disabled class="disabled bg-dark-blue-2 form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option selected>Analysis 1</option>
+                    
+                </select>
+            </div>
+
             <div className="classification-container margin-top-7 flex-column">
-                    <text className="classification color-light-gray font-weight-500 font-size-18">{classification}</text>
-                    <text className="moniker color-light-gray font-size-14 font-Nunito" style={{marginTop: 3, lineHeight: 1.2, fontWeight: 300}}>{UTIL.setMoniker(props.score)}</text>
-                </div>
+                <text className="classification color-light-gray font-weight-500 font-size-18">{classification}</text>
+                <text className="moniker color-light-gray font-size-14 font-Nunito" style={{ marginTop: 3, lineHeight: 1.2, fontWeight: 300 }}>{UTIL.setMoniker(props.score)}</text>
+            </div>
         </div>
 
-        
+
 
 
     </div>)
