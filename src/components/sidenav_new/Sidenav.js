@@ -144,7 +144,7 @@ const Sidenav = (props) => {
 
                                         <div className='divusername' onClick={handleLogin}>
                                             <div className='welcome'>Welcome</div>
-                                            <div className='username'>{user.name}</div>
+                                            <div className='username font-Nunito'>{user.name}</div>
                                         </div>
 
                                         {showPopup ? <div>

@@ -767,6 +767,22 @@ color: #25B8BF;
     margin-top: 3px;
 }
 
+.font-nunito {
+    font-family: 'Nunito';
+}
+
+.font-Metropolis {
+    font-family: 'Metropolis';
+}
+
+.font-Metropolis-light {
+    font-family: 'MetropolisLight';
+}
+
+.font-Metropolis-bold {
+    font-family: 'MetropolisBold';
+}
+
 .close-side-menu {
     margin-left: -50%;
 }

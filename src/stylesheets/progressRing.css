@@ -106,6 +106,22 @@
     flex-direction: column;
 }
 
+.font-nunito {
+    font-family: 'Nunito';
+}
+
+.font-Metropolis {
+    font-family: 'Metropolis';
+}
+
+.font-Metropolis-light {
+    font-family: 'MetropolisLight';
+}
+
+.font-Metropolis-bold {
+    font-family: 'MetropolisBold';
+}
+
 @media(min-width: 1000px) {
 }
 

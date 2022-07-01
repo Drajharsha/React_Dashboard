@@ -8,3 +8,19 @@
     margin-right: 0px;
     right: 0;
 }
+
+.font-nunito {
+    font-family: 'Nunito';
+}
+
+.font-Metropolis {
+    font-family: 'Metropolis';
+}
+
+.font-Metropolis-light {
+    font-family: 'MetropolisLight';
+}
+
+.font-Metropolis-bold {
+    font-family: 'MetropolisBold';
+}

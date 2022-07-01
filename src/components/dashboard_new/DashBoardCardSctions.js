@@ -27,7 +27,7 @@ const DashBoardCardSections = ({ item, state }) => {
                 <div className="top-left-right-rounded padding-left-20 padding-bottom-20 padding-top-20" style={{background: 'linear-gradient(90deg, ' +item.startColor +', ' + item.endColor + ')'}}>
                     <div className="flex flex-direction-row" style={{ alignItems: 'center' }}>
                         <img src={item.icon} style={{ width: 22, height: 22 }} />
-                        <label style={{ fontSize: 18, fontWeight: 500, color: '#FFFFFF', marginLeft: 8 }}>
+                        <label className='font-Nunito' style={{ fontSize: 18, fontWeight: 500, color: '#FFFFFF', marginLeft: 8 }}>
                             {item.type}
                         </label>
                     </div>
@@ -38,9 +38,9 @@ const DashBoardCardSections = ({ item, state }) => {
                         {/* redux -> state.entities.user.score[0].business value */}
                         <div style={{ height: '100%', justifyContent: 'space-between', display: 'flex', flexDirection: 'column', }}>
                             <div>
-                                <ProgressRingNew itemKey={item.key} startColor={item.startColor} endColor={item.endColor} isTransform={applyTransform} textSize={18} size={66} props={{ progress: state.entities.user.score[0][item.type] }} />
-                                <div className="margin-top-13" style={{ width: '100%', alignSelf: 'center', paddingLeft: 30, paddingRight: 30 }}>
-                                    <text style={{ fontWeight: '300', color: '#BACEE0', fontSize: 14 }}>
+                                <ProgressRingNew  itemKey={item.key} startColor={item.startColor} endColor={item.endColor} isTransform={applyTransform} textSize={18} size={66} props={{ progress: state.entities.user.score[0][item.type] }} />
+                                <div className="margin-top-13" style={{ width: '100%', alignSelf: 'center', paddingLeft: 25, paddingRight: 25 }}>
+                                    <text className='font-Nunito' style={{ fontWeight: '300', color: '#BACEE0', fontSize: 14, lineHeight: 0 }}>
                                         {UTIL.setSubDefinitions(item.type)}
                                     </text>
                                 </div>
@@ -49,7 +49,7 @@ const DashBoardCardSections = ({ item, state }) => {
                             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', width: 'fit-content', alignSelf: 'center', backgroundColor: '#122434' }} onClick={showInsightLayer}>
                                 <div className="outer-corner-insight-right" style={{ width: 10, height: 'auto' }}></div>
                                 <div className="bg-dark-blue-2">
-                                    <div className="top-left-right-rounded-8" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingLeft: 18, paddingRight: 18, paddingTop: 12, backgroundColor: '#122434' }}>
+                                    <div className="top-left-right-rounded-8" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingLeft: 18, paddingRight: 18, paddingTop: 12, backgroundColor: '#0B1C2B' }}>
                                         <img style={{ width: 16, height: 7 }} src={UpArrow} />
                                         <label style={{ fontSize: 12, color: '#BACEE0', fontWeight: 500 }}>Insights</label>
                                     </div>

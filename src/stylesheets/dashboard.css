@@ -181,6 +181,10 @@
     margin-top: 24px;
 }
 
+.margin-top-13 {
+    margin-top: 13px;
+}
+
 .margin-bottom-24 {
     margin-bottom: 24px;
 }
@@ -759,6 +763,22 @@
 
 .close-side-menu {
     margin-left: -50%;
+}
+
+.font-nunito {
+    font-family: 'Nunito';
+}
+
+.font-Metropolis {
+    font-family: 'Metropolis';
+}
+
+.font-Metropolis-light {
+    font-family: 'MetropolisLight';
+}
+
+.font-Metropolis-bold {
+    font-family: 'MetropolisBold';
 }
 
 

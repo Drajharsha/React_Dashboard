@@ -45,7 +45,7 @@ const OverallMLRScore = (props) => {
             <text style={{color: '#BACEE0', fontWeight: 700, fontSize: 24}}>Overall MLR score</text>
             <div className="classification-container margin-top-7 flex-column">
                     <text className="classification color-light-gray font-weight-500 font-size-18">{classification}</text>
-                    <text className="moniker color-light-gray font-size-14" style={{marginTop: 3, lineHeight: 1.2, fontWeight: 300}}>{UTIL.setMoniker(props.score)}</text>
+                    <text className="moniker color-light-gray font-size-14 font-Nunito" style={{marginTop: 3, lineHeight: 1.2, fontWeight: 300}}>{UTIL.setMoniker(props.score)}</text>
                 </div>
         </div>
 
