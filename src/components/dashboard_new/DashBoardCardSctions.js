@@ -9,9 +9,15 @@ import * as UTIL from '../../util/components/dashboard_component_util';
 const DashBoardCardSections = ({ item, state }) => {
     const [isInsightVisible, setInsightVisibility] = useState(false);
     const [applyTransform, setApplyTransform] = useState(false)
+    const [windowDimenion, detectHW] = useState({
+        winWidth: window.innerWidth,
+        winHeight: window.innerHeight,
+      })
 
     const showInsightLayer = () => {
-        setApplyTransform(true)
+        if (windowDimenion.winWidth > 768) {
+            setApplyTransform(true)
+        }
         setInsightVisibility(true)
     }
 
@@ -19,6 +25,24 @@ const DashBoardCardSections = ({ item, state }) => {
         setInsightVisibility(false)
         setApplyTransform(false)
     }
+
+    const detectSize = () => {
+        detectHW({
+          winWidth: window.innerWidth,
+          winHeight: window.innerHeight,
+        })
+      }
+
+    
+      useEffect(() => {
+        window.addEventListener('resize', detectSize)
+    
+        return () => {
+          window.removeEventListener('resize', detectSize)
+        }
+      }, [windowDimenion])
+
+      console.log(windowDimenion.winWidth)
 
     return (
         <Col className='card-height' lg={4} md={6} style={{ paddingLeft: 2, paddingRight: 2, marginTop: 15, marginBottom: 25 }} key={item.key}>

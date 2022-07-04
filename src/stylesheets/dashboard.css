@@ -797,6 +797,23 @@
     display: none;
 }
 
+#desktop {
+    display: flex;
+}
+
+#mobile {
+    display: none;
+}
+
+.animate-progress-bar {
+        transform: translate(38%, -80px) scale(0.65);
+        transition: transform 250ms ease-in-out;
+}
+
+.reanimate {
+    transform:  scale(1);
+}
+
 
 @media (max-width: 520px) {
     .action-bar {
@@ -813,8 +830,10 @@
     }
 
     .progress-div {
-        display: none;
+        display: flex;
+        flex-direction: column;
     }
+
 
     .card-height {
         height: 220px;
@@ -825,11 +844,28 @@
     }
 
     .padding-top-20 {
-        padding-top: 6px;
+        padding-top: 20px;
     }
     
     .padding-bottom-20 {
-        padding-bottom: 6px;
+        padding-bottom: 20px;
+    }
+
+    #desktop {
+        display: none;
+    }
+
+    #mobile {
+        display: flex;
+    }
+
+    .margin-top-13 {
+        margin-top: -53px;
+    }
+
+    .animate-progress-bar-1 {
+        transform: translate(190px, -80px) scale(0.65);
+        transition: transform 250ms ease-in-out;
     }
     
 }
@@ -850,7 +886,8 @@
     }
 
     .progress-div {
-        display: none;
+        display: flex;
+        flex-direction: column;
     }
 
     .card-height {
@@ -862,23 +899,44 @@
     }
 
     .padding-top-20 {
-        padding-top: 6px;
+        padding-top: 20px;
     }
     
     .padding-bottom-20 {
-        padding-bottom: 6px;
+        padding-bottom: 20px;
     }
 
+    #desktop {
+        display: none;
+    }
+
+    #mobile {
+        display: flex;
+    }
+
+    .margin-top-13 {
+        margin-top: -53px;
+    }
+
+    
+
+    /* .animate-progress-bar {
+        transform: translate(38%, -80px) scale(0.65);
+        transition: transform 250ms ease-in-out;
+    } */
+
 }
 
-.animate-progress-bar {
-    transform: translate(38%, -80px) scale(0.65);
-    transition: transform 250ms ease-in-out;
-}
+
 
 @media (min-width: 521px) and (max-width: 620px) {
     .animate-progress-bar {
         transform: translate(38%, -80px) scale(0.65);
+        transition: transform 250ms ease-in-out;
+    }
+
+    .animate-progress-bar-1 {
+        transform: translate(200px, -80px) scale(0.65);
         transition: transform 250ms ease-in-out;
     }
 }
@@ -888,11 +946,21 @@
         transform: translate(43%, -80px) scale(0.65);
         transition: transform 250ms ease-in-out;
     }
+
+    .animate-progress-bar-1 {
+        transform: translate(230px, -80px) scale(0.65);
+        transition: transform 250ms ease-in-out;
+    }
 }
 
 @media (min-width: 701px) and (max-width: 760px) {
     .animate-progress-bar {
         transform: translate(48%, -80px) scale(0.65);
+        transition: transform 250ms ease-in-out;
+    }
+
+    .animate-progress-bar-1 {
+        transform: translate(260px, -80px) scale(0.65);
         transition: transform 250ms ease-in-out;
     }
 }
