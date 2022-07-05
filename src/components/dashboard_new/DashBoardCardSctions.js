@@ -99,7 +99,7 @@ const DashBoardCardSections = ({ item, state }) => {
 
 
                             </div>
-                            <label style={{ color: '#BACEE0', fontSize: 11, overflow: 'hidden', marginTop: 5, textOverflow: 'ellipsis' }}>
+                            <label style={{ color: '#BACEE0', fontSize: 11, overflow: 'hidden', marginTop: 5, textOverflow: 'ellipsis', overflowY: 'scroll' }}>
                                 {
                                     state.entities.user.score[1][item.type]
                                 }

@@ -1,3 +1,20 @@
+::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  /* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #25B8BF; 
+    border-radius: 10px;
+  }
+  
+
 #dashboard-header {
     z-index: 1000;
     position: fixed;
@@ -961,6 +978,13 @@
 
     .animate-progress-bar-1 {
         transform: translate(260px, -80px) scale(0.65);
+        transition: transform 250ms ease-in-out;
+    }
+}
+
+@media (max-width: 478px) {
+    .animate-progress-bar-1 {
+        transform: translate(150px, -80px) scale(0.65);
         transition: transform 250ms ease-in-out;
     }
 }
