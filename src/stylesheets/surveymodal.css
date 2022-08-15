@@ -6,6 +6,9 @@
   z-index: 1000;
   left: 0;
   top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #survey-modal {
@@ -13,11 +16,7 @@
   border-radius: 5%;
   position: fixed;
   width: 40%;
-  height: 50%;
-  top: 50%;
-  left: 50%;
-  margin-top: -10%;
-  margin-left: -20%;
+  /* 0%; */
   z-index: 2000;
   flex-direction: column;
   display: flex;

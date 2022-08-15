@@ -57,6 +57,7 @@ class Dashboard extends React.Component {
             this.props.authenticate(JSON.parse(localStorage.authentication))
         }
 
+        console.log(this);
         let results = UTIL.getScores(this);
 
         this.score = results[0];
@@ -193,12 +194,15 @@ class Dashboard extends React.Component {
     }
 
     renderInsightComponents(panelName, subscoreSection) {
+        console.log(this.insight)
+        console.log(subscoreSection)
         if (subscoreSection === "date") return;
         if (subscoreSection === "Overall") return;
         if (!this.insight[subscoreSection]) return;
         if (this.insight[subscoreSection].length < 1) return;
 
         let key = `${panelName}-${subscoreSection.split(' ').join('-')}-key-` + Math.floor(Math.random() * 1000).toString()
+        console.log(key)
         return (
             <div
                 className={`${panelName}-component-container ${subscoreSection.split(' ').join('-')}-insights invisible offscreen`}
@@ -241,6 +245,7 @@ class Dashboard extends React.Component {
     }
 
     render() {
+        console.log("rendering")
         console.log(this.props.user)
         console.log(this.props.currentScore)
         console.log(this.props)

@@ -224,7 +224,7 @@ class LoginPopup extends React.Component {
         console.log(surveyBool)
         return (
             !this.props.user &&
-            <Container className={surveyBool ? "login-popup-frame" : "login-popup-frame solo-login"} onClick={this.handleClick} >
+            <div className={surveyBool ? "login-popup-frame" : "login-popup-frame solo-login"} onClick={this.handleClick} >
                 <form id="login-popup-container">
                     <div id="login-banner-container">
                         <img src={logo_teal} alt="" className="login-banner-logo" />
@@ -290,7 +290,7 @@ class LoginPopup extends React.Component {
                         <ValidationAlert className="alert__login" ValidationValue={this.validationError} ValidationBody={this.validationErrorMessage} />
                 </form>
                 {this.props.requestingPwReset && !this.props.passwordReset && <ResetPassword />}
-            </Container>
+            </div>
         )
     }
 }

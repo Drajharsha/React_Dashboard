@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
+import UserProfileNew from './user_profile_new';
 import { authenticate, login, logout, loggingIn } from '../../actions/session_actions';
+
 
 const mSTP = state => {
     return {

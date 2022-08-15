@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Dashboard from './dashboard';
+// import Dashboard from '../dashboard_new/Dashboard';
 import { authenticate } from '../../actions/session_actions';
 import { activateComparativeAnalysis, closeComparativeAnalysis, activateSentimentAnalysis, closeSentimentAnalysis, activateReccomendations, closeReccomendations } from '../../actions/dashboard_actions';
 import { userScore } from '../../actions/user_actions';
@@ -28,5 +29,6 @@ const mDTP = dispatch => {
         findScore: email => dispatch(userScore(email)),
     };
 };
+
 
 export default connect(mSTP, mDTP)(Dashboard);
